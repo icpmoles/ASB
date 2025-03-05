@@ -22,7 +22,7 @@ jobs:
       - run: typst compile ASB/docs/singularityAnalysis.typ --pdf-standard a-2b public/Singularity_Analysis.pdf
       - name: Clone repo check
         env:
-          folderName: date  +"%Y-%m-%d")"at"$(date  +"%H-%M"
+          folderName: echo $(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
         run: |
           pwd
           cp public/* landing/content/projects/asb/
