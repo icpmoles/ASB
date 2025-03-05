@@ -1,0 +1,43 @@
+name: Integration Test
+on: [push]
+jobs:
+  publish_resume:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          repository: icpmoles/landing
+          path: landing
+      - uses: actions/checkout@v3
+        with:
+          path: cv
+      - name: Self test
+        id: selftest
+        uses: typst-community/setup-typst@v3
+      - run: typst compile docs/cross.typ --pdf-standard a-2b Cross_Interactions.pdf
+      - run: typst compile docs/dynamicModel.typ --pdf-standard a-2b Dynamical_Model.pdf
+      - run: typst compile docs/singularityAnalysis.typ --pdf-standard a-2b Singularity_Analysis.pdf
+      # - name: Check existence of output file
+      #   run: |
+      #     test -e "ita.pdf"
+      #     test -e "eng.pdf"
+      - name: Clone repo check
+        run: |
+          pwd
+          tree
+          cp docs/*.pdf landing/content/asb/*.pdf
+          cd landing
+          git add .
+          git diff
+          git config --global user.email "8940011+icpmoles@users.noreply.github.com"
+          git config --global user.name "GitHub Action Bot"
+          git commit -m "auto-update resume" -a || echo "No changes to commit"
+          git push
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Output PDF files
+          path: |
+            docs/*.pdf
+          if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
