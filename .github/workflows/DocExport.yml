@@ -15,19 +15,16 @@ jobs:
       - name: Self test
         id: selftest
         uses: typst-community/setup-typst@v3
-      - run: folderNameE=$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
       - run: mkdir public
       - run: typst compile ASB/docs/cross.typ --pdf-standard a-2b public/Cross_Interactions.pdf
       - run: typst compile ASB/docs/dynamicModel.typ --pdf-standard a-2b public/Dynamical_Model.pdf
       - run: typst compile ASB/docs/singularityAnalysis.typ --pdf-standard a-2b public/Singularity_Analysis.pdf
       - name: Clone repo check
-        env:
-          folderName: echo $(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
         run: |
           pwd
-          cp public/* landing/content/projects/asb/
-          mkdir "landing/content/projects/asb/$folderName"
-          cp public/* "landing/content/projects/asb/$folderName"
+          mkdir public/$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
+          mv public/*.pdf public/202*
+          cp -r public/* landing/content/projects/asb/
           cd landing
           git add .
           git diff
