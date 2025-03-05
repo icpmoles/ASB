@@ -18,10 +18,7 @@ jobs:
       - run: typst compile docs/cross.typ --pdf-standard a-2b Cross_Interactions.pdf
       - run: typst compile docs/dynamicModel.typ --pdf-standard a-2b Dynamical_Model.pdf
       - run: typst compile docs/singularityAnalysis.typ --pdf-standard a-2b Singularity_Analysis.pdf
-      # - name: Check existence of output file
-      #   run: |
-      #     test -e "ita.pdf"
-      #     test -e "eng.pdf"
+
       - name: Clone repo check
         run: |
           pwd
