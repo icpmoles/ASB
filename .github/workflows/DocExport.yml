@@ -22,7 +22,7 @@ jobs:
       - name: Clone repo check
         run: |
           pwd
-          cp -r public/ landing/content/asb/
+          cp -r public/ landing/content/projects/asb/
           cd landing
           git add .
           git diff
