@@ -26,8 +26,8 @@ jobs:
         run: |
           pwd
           cp public/* landing/content/projects/asb/
-          mkdir $(echo "landing/content/projects/asb/$folderName")
-          cp public/* $(echo "landing/content/projects/asb/$folderName")
+          mkdir "landing/content/projects/asb/$folderName"
+          cp public/* "landing/content/projects/asb/$folderName"
           cd landing
           git add .
           git diff
