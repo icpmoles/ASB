@@ -23,7 +23,7 @@ jobs:
         run: |
           pwd
           mkdir public/$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
-          mv public/*.pdf public/202*
+          cp public/*.pdf public/202*
           cp -r public/* landing/content/projects/asb/
           cd landing
           git add .
