@@ -22,13 +22,13 @@ jobs:
       - name: Clone repo check
         run: |
           pwd
-          cp public/ landing/content/asb/
+          cp -r public/ landing/content/asb/
           cd landing
           git add .
           git diff
           git config --global user.email "8940011+icpmoles@users.noreply.github.com"
           git config --global user.name "GitHub Action Bot"
-          git commit -m "auto-update resume" -a || echo "No changes to commit"
+          git commit -m "auto-update docs" -a || echo "No changes to commit"
           git push
       - name: upload artifacts
         uses: actions/upload-artifact@v4
