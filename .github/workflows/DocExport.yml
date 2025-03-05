@@ -15,15 +15,15 @@ jobs:
       - name: Self test
         id: selftest
         uses: typst-community/setup-typst@v3
-      - run: typst compile docs/cross.typ --pdf-standard a-2b Cross_Interactions.pdf
-      - run: typst compile docs/dynamicModel.typ --pdf-standard a-2b Dynamical_Model.pdf
-      - run: typst compile docs/singularityAnalysis.typ --pdf-standard a-2b Singularity_Analysis.pdf
+      - run: typst compile ASB/docs/cross.typ --pdf-standard a-2b public/Cross_Interactions.pdf
+      - run: typst compile ASB/docs/dynamicModel.typ --pdf-standard a-2b public/Dynamical_Model.pdf
+      - run: typst compile ASB/docs/singularityAnalysis.typ --pdf-standard a-2b public/Singularity_Analysis.pdf
 
       - name: Clone repo check
         run: |
           pwd
           tree
-          cp docs/*.pdf landing/content/asb/*.pdf
+          cp public/*.pdf landing/content/asb/*.pdf
           cd landing
           git add .
           git diff
@@ -36,5 +36,5 @@ jobs:
         with:
           name: Output PDF files
           path: |
-            docs/*.pdf
+            public/*.pdf
           if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
