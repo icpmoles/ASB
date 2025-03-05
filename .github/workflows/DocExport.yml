@@ -15,6 +15,7 @@ jobs:
       - name: Self test
         id: selftest
         uses: typst-community/setup-typst@v3
+      - run: mkdir public 
       - run: typst compile ASB/docs/cross.typ --pdf-standard a-2b public/Cross_Interactions.pdf
       - run: typst compile ASB/docs/dynamicModel.typ --pdf-standard a-2b public/Dynamical_Model.pdf
       - run: typst compile ASB/docs/singularityAnalysis.typ --pdf-standard a-2b public/Singularity_Analysis.pdf
