@@ -1,0 +1,44 @@
+component DC_Motor
+% DC Motor
+% This block models a DC motor with an equivalent circuit comprising a 
+% series connection of a resistor, inductor, and electromechanical converter. 
+% Default values are the same as for the Permanent Magnet DC Motor example model.
+
+nodes
+    p = foundation.electrical.electrical;               % +:left
+    n = foundation.electrical.electrical;               % -:left
+    R = foundation.mechanical.rotational.rotational;    % R:right
+    C = foundation.mechanical.rotational.rotational;    % C:right
+end
+
+parameters
+    rotor_resistance    = { 2.6, 'Ohm' };           % Rotor Resistance
+    rotor_inductance    = { 180, 'mH' };           % Rotor Inductance        
+    motor_inertia       = { 0.01, 'g*cm^2' };       % Inertia
+    breakaway_torque    = { 0.02e-3, 'N*m' };       % Breakaway friction torque
+    coulomb_torque      = { 0.02e-3, 'N*m' };       % Coulomb friction torque    
+    breakaway_velocity  = { 0.1, 'rad/s' };         % Breakaway friction velocity
+    back_emf_constant   = { 7.68e-3, 'V/(rad/s)' };    % Back EMF constant
+end
+
+components(ExternalAccess=observe)
+    rotorResistor                  = foundation.electrical.elements.resistor(R = rotor_resistance);
+    rotorInductor                  = foundation.electrical.elements.inductor(l = rotor_inductance);
+    rotationalElectroMechConverter = foundation.electrical.elements.rotational_converter(K = ...
+                                        back_emf_constant);
+    friction                       = foundation.mechanical.rotational.friction(brkwy_trq = ...
+                                        breakaway_torque, Col_trq = coulomb_torque, ...
+                                        brkwy_vel = breakaway_velocity);
+    motorInertia                   = foundation.mechanical.rotational.inertia(inertia = motor_inertia);
+end
+
+connections
+    connect(p, rotorResistor.p);
+    connect(rotorResistor.n, rotorInductor.p);
+    connect(rotorInductor.n, rotationalElectroMechConverter.p);
+    connect(rotationalElectroMechConverter.n, n);
+    connect(rotationalElectroMechConverter.R, friction.R, motorInertia.I, R);
+    connect(rotationalElectroMechConverter.C, friction.C, C);
+end
+
+end
