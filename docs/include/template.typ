@@ -14,8 +14,10 @@
     #h(1fr) 
     #context [ 
       #if here().page() > 1 [
-   #title
-  ] 
+        #title
+      ] else [ Compiled at
+        #datetime.today().display("[day]/[month repr:short]/[year] ")
+      ]
   ]
   
   ],
