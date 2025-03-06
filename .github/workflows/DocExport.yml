@@ -20,7 +20,7 @@ jobs:
         uses: typst-community/setup-typst@v3
       - run: mkdir public; tree;
       - name: Compile PDFs
-        run: pwd; for file in ASB/docs/*.typ ; do echo $file; typst compile $file public/$(basename "$file"); done; tree;
+        run: pwd; for file in ASB/docs/*.typ ; do echo $file; typst compile $file public/$(basename "$file").pdf; done; tree;
       - name: Clone repo check
         run: |
           pwd
