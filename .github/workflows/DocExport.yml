@@ -1,4 +1,4 @@
-name: Integration Test
+name: Compile & Publish
 on:
   push:
     paths:
@@ -17,13 +17,13 @@ jobs:
         with:
           path: ASB
       - name: Self test
-        id: selftest
         uses: typst-community/setup-typst@v3
       - run: mkdir public
-      - name: Clone repo check
+      - name: Compile PDFs
         run: cd public; for file in ../ASB/docs/*.typ ; do typst compile $file; done; cd ..
       - name: Clone repo check
         run: |
+         cd ..
           pwd
           mkdir public/$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
           cp public/*.pdf public/202*
