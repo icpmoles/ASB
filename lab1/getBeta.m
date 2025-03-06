@@ -59,4 +59,5 @@ filelist = ["data_04-Mar-2025_10.mat",
 "data_04-Mar-2025_18-18-49.mat"];
 
 
+load("lab1/data/"+filelist(58))
 plot(data(1,:),data(2,:))
