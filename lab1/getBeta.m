@@ -58,8 +58,8 @@ filelist = ["data_04-Mar-2025_10.mat",
 "data_04-Mar-2025_18-17-52.mat",
 "data_04-Mar-2025_18-18-49.mat"];
 
-n_exp = 58;
-load("lab1/data/"+filelist(n_exp),data)
+n_exp = 57;
+load("lab1/data/"+filelist(n_exp),"data")
 %plot(data(1,:),data(2,:))
 smartPlot(data)
 
