@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - docs/**
+      - .github/**
 jobs:
   publish_docs:
     runs-on: ubuntu-latest
