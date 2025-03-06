@@ -20,10 +20,11 @@ jobs:
         uses: typst-community/setup-typst@v3
       - run: mkdir public
       - name: Compile PDFs
-        run: cd public; for file in ../ASB/docs/*.typ ; do typst compile $file; done; cd ..
+        run: pwd; cd public; for file in ../ASB/docs/*.typ ; do typst compile $file; done; cd ..;   pwd
       - name: Clone repo check
         run: |
-         cd ..
+          pwd
+          cd ..
           pwd
           mkdir public/$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
           cp public/*.pdf public/202*
