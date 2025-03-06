@@ -18,9 +18,9 @@ jobs:
           path: ASB
       - name: Self test
         uses: typst-community/setup-typst@v3
-      - run: mkdir public; tree
+      - run: mkdir public; tree; typst fonts --variants 
       - name: Compile PDFs
-        run: pwd; for file in ASB/docs/*.typ ; do typst compile $file; done; tree;
+        run: pwd; for file in ASB/docs/*.typ ; do echo $file; typst compile $file; done; tree;
       - name: Clone repo check
         run: |
           pwd
