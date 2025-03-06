@@ -30,7 +30,7 @@
   set math.equation(numbering: "1.")
   // Save heading and body font families in variables.
   let body-font = "New Computer Modern"
-  let sans-font = "Nimbus Sans"
+  let sans-font = "Liberation Sans"
 
   // Set body font family.
   set text(font: body-font, lang: "en")
