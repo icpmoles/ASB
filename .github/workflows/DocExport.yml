@@ -20,7 +20,7 @@ jobs:
         uses: typst-community/setup-typst@v3
       - run: mkdir public
       - name: Clone repo check
-        run: cd public; for file in ASB/docs/*.typ ; do typst compile $file; done; cd ..
+        run: cd public; for file in ../ASB/docs/*.typ ; do typst compile $file; done; cd ..
       - name: Clone repo check
         run: |
           pwd
