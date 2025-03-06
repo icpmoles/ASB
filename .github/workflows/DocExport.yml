@@ -18,13 +18,14 @@ jobs:
           path: ASB
       - name: Self test
         uses: typst-community/setup-typst@v3
-      - run: mkdir public
+      - run: mkdir public; tree
       - name: Compile PDFs
         run: pwd; cd public; for file in ../ASB/docs/*.typ ; do typst compile $file; done; cd ..;   pwd
       - name: Clone repo check
         run: |
           pwd
           cd ..
+          tree
           pwd
           mkdir public/$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
           cp public/*.pdf public/202*
