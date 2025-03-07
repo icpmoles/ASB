@@ -14,7 +14,7 @@ crossc = inv(mm);
      mm
    crossc
  end
- mrga = mm(1,1); %*mm(2,2)/det(mm);
+ mrga = mm(1,1)*mm(2,2)/det(mm);
 
 % mrga = crossc(1,1)*crossc(2,2)/det(crossc);
 
