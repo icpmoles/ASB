@@ -108,9 +108,9 @@ theta_2  (a2,p2,p1)= p1) $
 
 
 $ lamb(4,2) &=part(x_2,a1) =
--L sin(a2) -L sin(p2) g_21 + L/2 sin(p1) g_12
+-L sin(a2) -L sin(p2) g_22 + L/2 sin(p1) g_12
  \
-lamb(5,2) &=part(y_2,a1) = L cos(a2) +  L cos(p2) g_21 - L/2 cos(p1) g_12 \
+lamb(5,2) &=part(y_2,a1) = L cos(a2) +  L cos(p2) g_22 - L/2 cos(p1) g_12 \
 lamb(6,2) &=part(t2,a1) =  g_12 \
  $
 
