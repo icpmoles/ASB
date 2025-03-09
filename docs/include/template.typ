@@ -39,7 +39,7 @@
   set math.vec(delim: "[")
 
   show heading: set text(font: sans-font)
-  set heading(numbering: "1.1.a")
+  set heading(numbering: "1.1.a)")
   // Title row.
   align(center)[
     #block(text(font: sans-font, weight: 700, 1.75em, title))

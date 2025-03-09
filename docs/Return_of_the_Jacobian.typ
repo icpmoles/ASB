@@ -185,7 +185,7 @@ For a given (x,y) workspace coordinate, we use the inverse kinematics to calcula
 Then we fill the mass jacobian according to the previously specified laws.
 $ Lm =FullLamb $
 We calculate the generalized matrix of inertia with $ mm = Lm^T mphm Lm $
-where $mphm = [m , m , J_l + r^2 J_r, m , m , J_l, m , m , J_l, m , m , J_l + r^2 J_r]^T $
+where $mphm = "diag" [m , m , J_l + r^2 J_r, m , m , J_l, m , m , J_l, m , m , J_l + r^2 J_r] $
 
 === Why is the inertia of the first and last links like that? 
 Assuming to have two actuator on the 1st and 2nd load axles, the equivalent mechanical system is this:
@@ -197,3 +197,73 @@ $J_l$ is the moment of inertia of the links (provided by the manufacturer)
 $J_r$ is the total moment of inertia of the motor + gears assembly seen by the motor side (provided by the manufacturer), we can move $J_r$ to the load side by multiplying by $r^2$ (r = gear ratio = 70 ): $J_r^L = J_r r^2$
 
 We can simply sum them and place the result in the inertia of the first and last links.
+
+== Symbolic analysis
+
+$J_a$ = Inertia of active links (I & IV), $J_p$ = Inertia of passive links (II & III)
+
+#let mpdiag = [$mat(
+  m, 0, 0, 0 , 0, 0, 0 , 0, 0, 0 , 0, 0, ;
+  0, m, 0, 0 , 0, 0, 0 , 0, 0, 0 , 0, 0, ;
+  0, 0, J_a, 0 , 0, 0, 0 , 0, 0, 0 , 0, 0, ;
+
+  0, 0, 0, m , 0, 0, 0 , 0, 0, 0 , 0, 0, ;
+  0, 0, 0, 0 , m, 0, 0 , 0, 0, 0 , 0, 0, ;
+  0, 0, 0, 0 , 0, J_p, 0 , 0, 0, 0 , 0, 0, ;
+
+  0, 0, 0, 0 , 0, 0, m , 0, 0, 0 , 0, 0, ;
+  0, 0, 0, 0 , 0, 0, 0 , m, 0, 0 , 0, 0, ;
+  0, 0, 0, 0 , 0, 0, 0 , 0, J_p, 0 , 0, 0, ;
+
+  0, 0, 0, 0 , 0, 0, 0 , 0, 0, m , 0, 0, ;
+  0, 0, 0, 0 , 0, 0, 0 , 0, 0, 0 , m, 0, ;
+  0, 0, 0, 0 , 0, 0, 0 , 0, 0, 0 , 0, J_a, ;
+  )
+$]
+
+$ mm = FullLamb^T  mpdiag FullLamb = \ =
+mat(
+ lamb(1,1), lamb(2,1) , lamb(3,1) ,  lamb(4,1) ,  lamb(5,1) ,  lamb(6,1) ,
+   lamb(7,1),  lamb(8,1) , lamb(8,1) ,  lamb(10,1) ,  lamb(11,1) , lamb(12,1) ;
+
+    lamb(1,2),  lamb(2,2) ,  lamb(3,2) , lamb(4,2) ,  lamb(5,2) , lamb(6,2) ,
+   lamb(7,2),  lamb(8,2) ,  lamb(8,2) , lamb(10,2) , lamb(11,2) ,  lamb(12,2) ;
+
+ ) 
+mat(
+  lamb(1,1) m,  lamb(1,2) m ;
+  lamb(2,1) m,  lamb(2,2) m ;
+  lamb(3,1) J_a,  lamb(3,2) J_a ;
+  lamb(4,1)  m,  lamb(4,2) m ;
+  lamb(5,1) m ,  lamb(5,2)  m;
+  lamb(6,1) J_p ,  lamb(6,2) J_p ;
+  lamb(7,1)  m,  lamb(7,2)  m;
+  lamb(8,1)  m,  lamb(8,2)  m;
+  lamb(9,1)  J_p,  lamb(9,2)  J_p ;
+  lamb(10,1) m ,  lamb(10,2) m ;
+  lamb(11,1)  m,  lamb(11,2)  m;
+  lamb(12,1) J_a ,  lamb(12,2)  J_a;   
+  ) = \ =
+
+ mat(
+m_11 , m_12; m_21, m_22
+
+ )
+$
+
+$ m_11 =  m lamb(1,1)^2 + m lamb(2,1)^2  + J_a lamb(3,1)^2  +  m lamb(4,1)^2  +  m lamb(5,1)^2  + J_p lamb(6,1)^2  +   m lamb(7,1)^2 +  m lamb(8,1)^2 +  J_p lamb(9,1)^2  + \ m lamb(10,1)^2  +  m lamb(11,1)^2  + J_a lamb(12,1)^2  = \ =
+m lamb(1,1)^2 + m lamb(2,1)^2  + J_a lamb(3,1)^2  +  m lamb(4,1)^2  +  m lamb(5,1)^2  + J_p lamb(6,1)^2  +   m lamb(7,1)^2 +  m lamb(8,1)^2 +  J_p lamb(9,1)^2  
+
+$
+
+$ m_22 =  m lamb(1,2)^2 + m lamb(2,2)^2  + J_a lamb(3,2)^2  +  m lamb(4,2)^2  +  m lamb(5,2)^2  + J_p lamb(6,2)^2  +   m lamb(7,2)^2 +  m lamb(8,2)^2 +  J_p lamb(9,2)^2 \ +  m lamb(10,2)^2  +  m lamb(11,2)^2  + J_a lamb(12,2)^2 = \ =
+ m lamb(4,2)^2  +  m lamb(5,2)^2  + J_p lamb(6,2)^2  +   m lamb(7,2)^2 +  m lamb(8,2)^2 +  J_p lamb(9,2)^2  +  m lamb(10,2)^2  +  m lamb(11,2)^2  + J_a lamb(12,2)^2
+ $
+
+
+#let lambm(row,col) = [$lambda_(row,col) lambda_(col,row) $ ]
+
+$ m_12 = m_21 =  m lambm(1,2) + m lambm(2,2)  + J_a lambm(3,2)  +  m lambm(4,2)  +  m lambm(5,2)  + J_p lambm(6,2)  \ +   m lambm(7,2) +  m lambm(8,2) +  J_p lambm(9,2)  +  m lambm(10,2)  +  m lambm(11,2)  + J_a lambm(12,2) = \ =
+ m lambm(4,2)  +  m lambm(5,2)  + J_p lambm(6,2)  +   m lambm(7,2) +  m lambm(8,2) +  J_p lambm(9,2)  
+$
+
