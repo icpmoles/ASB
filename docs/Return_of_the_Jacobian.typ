@@ -188,7 +188,7 @@ We calculate the generalized matrix of inertia with $ mm = Lm^T mphm Lm $
 where $mphm = "diag" [m , m , J_l + r^2 J_r, m , m , J_l, m , m , J_l, m , m , J_l + r^2 J_r] $
 
 === Why is the inertia of the first and last links like that? 
-Assuming to have two actuator on the 1st and 2nd load axles, the equivalent mechanical system is this:
+Assuming to have two actuator on the 1st and 2nd load shafts, the equivalent mechanical system is this:
 
 #image("figures/FullLinksandRotor.png",width: 65%)
 

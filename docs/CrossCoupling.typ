@@ -12,7 +12,7 @@
 )
 
 = Why?
-One of our hypotheses is that the two active arms are completely decoupled. Our main reason behind it is that the revolute joints don't transfer load between them and that the high gear ratio "blocks" every (small) disturbance on the load axle from reaching the motor axle.
+One of our hypotheses is that the two active arms are completely decoupled. Our main reason behind it is that the revolute joints don't transfer load between them and that the high gear ratio "blocks" every (small) disturbance on the load shaft from reaching the motor shaft.
 
 This is a good first approximation because it allows us to ignore every cross-interactions between the two servo motors and design the controllers independently.
 
@@ -21,7 +21,7 @@ We can apply a more rigorous approach in the study of these effects before movin
 = 2-DOF Kinematics
 
 
-Seen from the 2 load axles our system has only masses and moments of inertia, no potential energies or dissipations.
+Seen from the 2 load shafts our system has only masses and moments of inertia, no potential energies or dissipations.
 
 #let yd = [$underline(dot(y))$]
 #let mphm = [$[m_"ph"]$]
@@ -34,7 +34,7 @@ Where  $mphm = [m , m , J_l + r^2 J_r, m , m , J_l, m , m , J_l, m , m , J_l + r
 
 (n.b: $J_l$ is the moment of inertia of the links at the center of gravity, do not use the Huygens–Steiner theorem or that other moment of inertia around the pivot)
 
-(n.n.b: $J_r$ is the moment of inertia of rotor moved on the load axle)
+(n.n.b: $J_r$ is the moment of inertia of rotor moved on the load shaft)
 
 and $yd$ = 
 $[x_"l1",y_"l1", theta_"l1",
@@ -86,9 +86,9 @@ $ mm qddv = underline(f)(t) $
 
 $ vec( tau_1 , tau_2 ) = mat( m_11,  m_12 ; m_21, m_22) vec(diaer(q_1),diaer(q_2) ) $
 
-With these equations we can calculate the torque applied on the load axles when a specific angular acceleration occurs (or if we invert it, the necessary torque to have a desired acceleration on the load axles).
+With these equations we can calculate the torque applied on the load shafts when a specific angular acceleration occurs (or if we invert it, the necessary torque to have a desired acceleration on the load shafts).
 
-This is a good starting point to analyze eventual cross interactions between the two axles.
+This is a good starting point to analyze eventual cross interactions between the two shafts.
 
 == The humble Jacobian of Inertia
 
@@ -152,7 +152,7 @@ rgaf(0,pi/2,true)
  $ mm("rest") = mat( 10.2287  ,  0.0002;
     0.0002  , 10.2271)  $  
 
-So, to obtain $1 "rad"/s^2$ of acceleration on the 1st active link we need $10.2287$ Nm on the 1st load axle and $0.0002$ Nm on the 2nd load axle (which when accounting for the r = 70 gear ratio results in 0.1461 Nm and  $2.8571 times 10^(-6)$ on the motor axles respectively)
+So, to obtain $1 "rad"/s^2$ of acceleration on the 1st active link we need $10.2287$ Nm on the 1st load shaft and $0.0002$ Nm on the 2nd load shaft (which when accounting for the r = 70 gear ratio results in 0.1461 Nm and  $2.8571 times 10^(-6)$ on the motor shafts respectively)
 
 Dually, by inverting we have:
 
@@ -161,7 +161,7 @@ $ vec(diaer(q_1),diaer(q_2) ) = mm^(-1) vec( tau_1 , tau_2 )  $
  $ mm^(-1)("rest") = mat(      0.0978 ,  -0.0000 ;
    -0.0000  ,  0.0978) $
 
-Which means that when applying $ 1 N m$ on the 1st active load axle we'll end up with $ 0.0978 "rad"/s^2$ on the first active link and a negligible acceleration on the second load axle. *Great!*
+Which means that when applying $ 1 N m$ on the 1st active load shaft we'll end up with $ 0.0978 "rad"/s^2$ on the first active link and a negligible acceleration on the second load shaft. *Great!*
 
 Be aware that symbolically inverting $mm$ is useless because we can just invert the matrix after the evaluation.
 
@@ -186,7 +186,7 @@ We can see how we have good decoupling everywhere but in the singularity region,
 
 #image("figures/crossc_atsing.png")
 
-When near the singularity, every torque applied on one axle is fully transferred to the other axle = high RGA!
+When near the singularity, every torque applied on one shaft is fully transferred to the other shaft = high RGA!
 
 = Appendix
 

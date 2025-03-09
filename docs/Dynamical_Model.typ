@@ -29,11 +29,11 @@ We can schematize the mechanical assembly in this way:
 
 (from left to right)
 
-We start with the DC motor attached to the support. Attached to this motor we have the inertia of the rotor and the inertia of the tachometer (n.b: it's connected to the motor axle but not connected to the acquisition board, we can't access it).
+We start with the DC motor attached to the support. Attached to this motor we have the inertia of the rotor and the inertia of the tachometer (n.b: it's connected to the motor shaft but not connected to the acquisition board, we can't access it).
 
-The motor axle is then connected to a set of gears in torque multiplying configuration (r = 70) that end at the load axle.
+The motor shaft is then connected to a set of gears in torque multiplying configuration (r = 70) that end at the load shaft.
 
-On the load axle we have our load and the quadrature encoder (no inertia reported on it from the manufacturer).
+On the load shaft we have our load and the quadrature encoder (no inertia reported on it from the manufacturer).
 
 == Dynamical Model
 
