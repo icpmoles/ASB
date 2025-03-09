@@ -13,6 +13,9 @@ J_motor_side = 3.9e-7 + 7.06e-8 + 2.087e-3;
 Jp = J_l_cog;
 Ja = Jp + (70^2)*J_motor_side;
 mph = diag([m,m,Ja,m,m,Jp,m,m,Jp,m,m,Ja]);
+bound_d = 0.02; %% at the singularity it has problems
+bound_od = 0.01; %% at the singularity it has problems, off diagonal members
+
 
 if not(error)
 g11 = sin(a1-a2)/sin(p1-p2);
@@ -66,10 +69,10 @@ l1_2 , l2_2, l3_2 , l4_2,  l5_2 , l6_2, l7_2 , l8_2,  l9_2 , l10_2, l11_2 , l12_
 ]';
 
 m0 = Lm'*mph*Lm;
-m11 = m0(1,1);
-m12 = m0(1,2);
-m21 = m0(2,1);
-m22 = m0(2,2);
+m11 = clamp(m0(1,1),bound_d);
+m12 = clamp(m0(1,2),bound_od);
+m21 = clamp(m0(2,1),bound_od);
+m22 = clamp(m0(2,2),bound_d);
 
 if debug
 Lm

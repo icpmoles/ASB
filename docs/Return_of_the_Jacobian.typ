@@ -265,5 +265,47 @@ $ m_22 =  m lamb(1,2)^2 + m lamb(2,2)^2  + J_a lamb(3,2)^2  +  m lamb(4,2)^2  + 
 
 $ m_12 = m_21 =  m lambm(1,2) + m lambm(2,2)  + J_a lambm(3,2)  +  m lambm(4,2)  +  m lambm(5,2)  + J_p lambm(6,2)  \ +   m lambm(7,2) +  m lambm(8,2) +  J_p lambm(9,2)  +  m lambm(10,2)  +  m lambm(11,2)  + J_a lambm(12,2) = \ =
  m lambm(4,2)  +  m lambm(5,2)  + J_p lambm(6,2)  +   m lambm(7,2) +  m lambm(8,2) +  J_p lambm(9,2)  
-$
+$<mdiag>
 
+= Results
+
+Sampling the workspace the generalized matrix of inertia has the following values:
+
+#image("figures/m11_real.png")
+#image("figures/m22_real.png")
+#figure(image("figures/m_diag_real.png"),caption:[(N.b: ignore the image title, this technically "off-diagonal")])
+
+
+The 2 diagonal terms have a constant $approx$ 10 kg m^2 throughout the workspace. With some spikes at infinity in the singularities. (Unstoppable force vs unmovable object = $infinity$). (For the sake of visualization the values have been capped at 20.)
+
+== What if we forgot about the inertia before the gearbox?
+
+For the sake of the argument let's assume we forgot to account for the inertia of the motor assembly:
+
+
+#image("figures/PartialLinkswithoutRotor.png", width: 70%)
+
+We can sample again the system and see how it changes:
+
+#image("figures/m11_partial.png")
+#image("figures/m22_partial.png")
+(Capped at 0.02)
+
+#figure(image("figures/m_partial_od.png"),caption:[(N.b: ignore the image title, this technically "off-diagonal")])
+
+We can see how the inertia of the diagonal terms is much smaller and less "stable"
+This demonstrates the "decoupling effect of high gear ratios in robotics" which means that we can design a controller assuming a "constant" inertia.
+
+
+By comparing the two off-diagonal graphs we can see that they are basically the same. This is consistent with @mdiag where $J_a$ doesn't appear.
+
+= Takeaway from this
+
+- The inertia seen by the motor is constant.
+
+- Simply use the value seen at the rest point (10.2338 & 10.2346) and translate it to the motor shaft.
+  
+  $ J_1 = 10.2338/70^2 = 0.007309 "kg" m^2 $ 
+  $ J_2 = 10.2346/70^2 = 0.007310 "kg" m^2 $ 
+
+- Hopefully this is consistent with time constants and stuff somehow.
