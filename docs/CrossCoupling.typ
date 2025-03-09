@@ -92,12 +92,12 @@ This is a good starting point to analyze eventual cross interactions between the
 
 == The humble Jacobian of Inertia
 
-#let l11 = [$-L sin(ta1)$]
-#let l21 = [$+L cos(ta1)$]
+#let l11 = [$-L/2 sin(ta1)$]
+#let l21 = [$+L/2 cos(ta1)$]
 #let l31 = [$1$]
 
-#let l102 = [$-L sin(ta2)$]
-#let l112 = [$+L cos(ta2)$]
+#let l102 = [$-L/2 sin(ta2)$]
+#let l112 = [$+L/2 cos(ta2)$]
 #let l122 = [$1$]
 #let lamb(row,col) = [$lambda_(row,col)$]
 #let FullLamb = [$mat(delim: "[",

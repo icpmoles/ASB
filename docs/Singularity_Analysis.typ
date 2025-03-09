@@ -112,12 +112,12 @@ mat(
 mat(
 sin(thetaa1 - thetap2),sin(thetap2 - thetaa2);
 sin(thetaa1 - thetap1),sin(thetap1 - thetaa2);
-) = mat( lambda_(1 1) , lambda_(1 2) ;
-lambda_(2 1), lambda_(2 2) )
+) = mat( g_(1 1) , g_(1 2) ;
+g_(2 1), g_(2 2) )
 $
 
-$ omrv = mat( lambda_(1 1) , lambda_(1 2) ;
-lambda_(2 1), lambda_(2 2) ) qv $<jacobianrot>
+$ omrv = mat( g_(1 1) , g_(1 2) ;
+g_(2 1), g_(2 2) ) qv $<jacobianrot>
 
 = Velocity Singularities
 
@@ -140,10 +140,10 @@ cos(thetaa1) ,cos(thetap1)
 We have a relation between the angles of the left links and the velocity of the End Effector. Ideally we would like a relation between the actuators and the velocity. We can use the relations found in @jacobianrot for that.
 
 $ vec(delta thetaa1 , delta thetap1) = mat( 1, 0 ;
-lambda_(1 1) , lambda_(1 2) ) qv $
+g_(1 1) , g_(1 2) ) qv $
 
 $ v = J_1^x mat( 1, 0 ;
-lambda_(1 1) , lambda_(1 2) ) qv = Lambda_q^x q  $
+g_(1 1) , g_(1 2) ) qv = Lambda_q^x q  $
 
 With 
 $  Lambda_q^x= L 
@@ -151,15 +151,15 @@ mat(- sin(thetaa1) , - sin(thetap1) ;
 cos(thetaa1) ,cos(thetap1)
 )  
 mat( 1, 0 ;
-lambda_(1 1) , lambda_(1 2) ) = \ =
-L mat( - sin(thetaa1) - sin(thetap1) lambda_(1 1) , 
-- sin(thetap1) lambda_(1 1) ;
-cos(thetaa1) + cos(thetap1) lambda_(1 2) , 
-cos(thetap1) lambda_(1 2) ;
+g_(1 1) , g_(1 2) ) = \ =
+L mat( - sin(thetaa1) - sin(thetap1) g_(1 1) , 
+- sin(thetap1) g_(1 1) ;
+cos(thetaa1) + cos(thetap1) g_(1 2) , 
+cos(thetap1) g_(1 2) ;
 )
 $<Jvel>
 
-(N.b. In the MATLAB code $ lambda_(1 1), lambda_(1 2)$ are galled g1 and g2 respectively)
+(N.b. In the MATLAB code $ g_(1 1), g_(1 2)$ are galled g1 and g2 respectively)
 
 In this case the singularity analysis is not as straightforward as the rotational case.
 

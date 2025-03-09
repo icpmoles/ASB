@@ -35,8 +35,11 @@
   // Set body font family.
   set text(font: body-font, lang: "en")
   show math.equation: set text(weight: 400)
-  show heading: set text(font: sans-font)
+  set math.mat(delim: "[")
+  set math.vec(delim: "[")
 
+  show heading: set text(font: sans-font)
+  set heading(numbering: "1.1.a")
   // Title row.
   align(center)[
     #block(text(font: sans-font, weight: 700, 1.75em, title))
