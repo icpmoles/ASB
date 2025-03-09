@@ -26,6 +26,7 @@ jobs:
           pwd
           mkdir public/$(date  +"%Y-%m-%d")"at"$(date  +"%H-%M")
           touch public/canary.pdf
+          date +%s > public/canary.pdf
           cp public/*.pdf public/202*
           rm public/canary.pdf
           cp -r public/* landing/content/projects/asb/
