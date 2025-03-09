@@ -59,7 +59,7 @@ $ theta_i$ is the angle of the i-th link.
 
 $ lamb(i,j)$ is the element of the i-th row, j-th column of the mass jacobian.
 
-== Links 1 
+== Link 1 
 
 #let a1 = [$theta_(a 1)$]
 #let a2 = [$theta_(a 2)$]
@@ -73,9 +73,9 @@ $ lamb(i,j)$ is the element of the i-th row, j-th column of the mass jacobian.
 
 #let part(num,dem) = [$(partial num)/(partial dem)$]
 
-$ x_1 = L/2 cos(a1) \ y_1 = L/2 sin(a1) \ theta_1 = a1 $
+$ cases( x_1 = L/2 cos(a1) \ y_1 = L/2 sin(a1) \ theta_1 = a1) $
 
-$ lamb(1,1) &=part(x_1,a1) =  -L/2 sin(a1) \
+$  lamb(1,1) &=part(x_1,a1) =  -L/2 sin(a1) \
 lamb(2,1) &=part(y_1,a1) =  L/2 cos(a1) \
 lamb(3,1) &= part(t1,a1) =  1\
  $
@@ -87,9 +87,9 @@ lamb(3,1) &= part(t1,a1) =  1\
 
 Kinematic chain from A1  to 2nd link:
 
-$ x_2 (a1,p1) = L cos(a1) + L/2 cos(p1) \ 
+$ cases(x_2 (a1,p1) = L cos(a1) + L/2 cos(p1) \ 
 y_2 (a1,p1)= L sin(a1)  + L/2 sin(p1) \ 
-theta_2  (a1,p1)= p1 $
+theta_2  (a1,p1)= p1) $
 
 
 $ lamb(4,1) &= part(x_2,a1) =  -L sin(a1) +  L/2 part(cos(p1),a1)
@@ -102,9 +102,9 @@ lamb(6,1) &= part(t2,a1) =  g_11 \
 
 Now  we follow the kinematic chain from the opposite direction (A2  to 2nd link)
 
- $ x_2 (a2,p2,p1) = 2L + L cos(a2)  + L cos(p2) - L/2 cos(p1) \ 
+ $ cases(x_2 (a2,p2,p1) = 2L + L cos(a2)  + L cos(p2) - L/2 cos(p1) \ 
 y_2 (a2,p2,p1)= L sin(a2)  + L sin(p2) - L/2 sin(p1) \ 
-theta_2  (a2,p2,p1)= p1 $
+theta_2  (a2,p2,p1)= p1) $
 
 
 $ lamb(4,2) &=part(x_2,a1) =
@@ -118,9 +118,9 @@ lamb(6,2) &=part(t2,a1) =  g_12 \
  == Link 3
 
 
-$ x_3 (a1,p1,p2) = L cos(a1) + L cos(p1) -L/2 cos(p2) \ 
+$ cases(x_3 (a1,p1,p2) = L cos(a1) + L cos(p1) -L/2 cos(p2) \ 
 y_3 (a1,p1,p2)= L sin(a1)  + L sin(p1)  -L/2 sin(p2) \ 
-theta_3  (a1,p1,p2)= p2 $
+theta_3  (a1,p1,p2)= p2) $
 
 
 $ lamb(7,1) &=part(x_3,a1)  =
@@ -131,9 +131,9 @@ lamb(9,1) &=part(t3,a1) =  g_21 \
  $
 
 
- $ x_3 (a2,p2) = 2L + L cos(a2)  + L/2 cos(p2)  \ 
+ $ cases(x_3 (a2,p2) = 2L + L cos(a2)  + L/2 cos(p2)  \ 
 y_3 (a2,p2)= L sin(a2)  + L/2 sin(p2)  \ 
-theta_3  (a2,p2)= p2 $
+theta_3  (a2,p2)= p2) $
 
 
 $ lamb(7,2) &= part(x_3,a1) =
@@ -146,7 +146,7 @@ lamb(9,2) &=part(t2,a1) =  g_22 \
 
  == Link 4
 
-  $ x_4 = 2L +  L/2 cos(a2) \ y_4 = L/2 sin(a2) \ theta_4 = a2 $
+  $ cases(x_4 = 2L +  L/2 cos(a2) \ y_4 = L/2 sin(a2) \ theta_4 = a2) $
  $ lamb(10,1) =lamb(11,1) =lamb(12,1) =0 $
 
 $ lamb(10,2) &= part(x_4,a2) =  -L/2 sin(a2) \
@@ -190,7 +190,7 @@ where $mphm = [m , m , J_l + r^2 J_r, m , m , J_l, m , m , J_l, m , m , J_l + r^
 === Why is the inertia of the first and last links like that? 
 Assuming to have two actuator on the 1st and 2nd load axles, the equivalent mechanical system is this:
 
-#image("figures/FullLinksandRotor.png")
+#image("figures/FullLinksandRotor.png",width: 65%)
 
 $J_l$ is the moment of inertia of the links (provided by the manufacturer)
 
