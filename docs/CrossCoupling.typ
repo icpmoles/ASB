@@ -8,8 +8,12 @@
     "Iacopo Moles",
   ),
   group: "Automatici Strike Back",
-  watermark: "NOT FINAL"
+  watermark: "OUTDATED"
 )
+
+= Warning
+
+Be careful, the calculations of the mass jacobian in this paper is outdated (but still valid, refer to the new paper: Return of the Jacobian)
 
 = Why?
 One of our hypotheses is that the two active arms are completely decoupled. Our main reason behind it is that the revolute joints don't transfer load between them and that the high gear ratio "blocks" every (small) disturbance on the load shaft from reaching the motor shaft.

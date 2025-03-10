@@ -10,6 +10,7 @@ L =0.127;
 m = 0.065;
 J_l_cog = 8.74e-5;
 J_motor_side = 3.9e-7 + 7.06e-8 + 2.087e-3;
+% J_motor_side = 0;
 Jp = J_l_cog;
 Ja = Jp + (70^2)*J_motor_side;
 mph = diag([m,m,Ja,m,m,Jp,m,m,Jp,m,m,Ja]);
@@ -75,7 +76,12 @@ m21 = clamp(m0(2,1),bound_od);
 m22 = clamp(m0(2,2),bound_d);
 
 if debug
+a1
+a2
+p1
+p2
 Lm
+mph
 m0
 end
 

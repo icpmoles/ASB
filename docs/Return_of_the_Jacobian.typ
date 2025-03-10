@@ -305,7 +305,7 @@ By comparing the two off-diagonal graphs we can see that they are basically the 
 
 - Simply use the value seen at the rest point (10.2338 & 10.2346) and translate it to the motor shaft.
   
-  $ J_1 = 10.2338/70^2 = 0.007309 "kg" m^2 $ 
-  $ J_2 = 10.2346/70^2 = 0.007310 "kg" m^2 $ 
+  $ J_1 = 10.2338/70^2 = 0.00208 "kg" m^2 $ 
+  $ J_2 = 10.2346/70^2 = 0.00208 "kg" m^2 $ 
 
 - Hopefully this is consistent with time constants and stuff somehow.
