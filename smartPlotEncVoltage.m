@@ -110,4 +110,6 @@ if size(data,1)>3
             legend(["M 0","M 1"],'Location','northwest');
     
     isProper = false;
+
 end
+hold off
