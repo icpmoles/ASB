@@ -15,7 +15,7 @@
     #context [ 
       #if here().page() > 1 [
         #title
-      ] else [ Compiled at
+      ] else [ Compilation date:
         #datetime.today().display("[day]/[month repr:short]/[year] ")
       ]
   ]
