@@ -14,7 +14,8 @@
 From the first lab I understood that we needed a rectangle in workspace but then it turned out we needed it in joint/configuration space. 
 
 We can do in two ways:
-+ Sample the workspace, whenever we have an admissible configuration we save the joint configuration and plot it at the end. With his solution re-uses the inverse kinematics code
++ Sample the workspace, whenever we have an admissible configuration we save the joint configuration and plot it at the end. This solution re-uses the inverse kinematics code
+
 + Sample the joint space, if the direct kinematics is admissible with respect to some criteria save the pose, plot it at the end.
 
 With #1 it's possible to save some time thanks to the code re-use but an uniform sampling in workspace doesn't translate well in joint space, leading to some artifacts that require a more fine-spaced sampling with more cumbersome calculations.
