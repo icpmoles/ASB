@@ -127,3 +127,86 @@ I settled on:
 $theta_(a 2)$ = [ 68° , 122 °] = [1.204rad , 2.14rad]
 #image("figures/jointBounds.png")
 
+= Simulink Implementation
+
+Test of trajectory around the safety bounds.
+
+
+#image("figures/simulink_jointbounds.png")
+
+#image("figures/simulink_jointboundsParameters.png")
+
+#image("figures/jointBoundsWorkspace.png")
+
+(Plot of trajectory in workspace)
+
+Once we set-up a safety bound we can decide what happens when it's crossed:
+
+We can virtually saturate the control voltage to slow it down and let us intervene or we can directly stop the machine.
+
+My proposal is to have a "tiered" safety system: 
+
+- Inside the safe bounds we use the nominal voltage limits (10V amplitude) (0th zone)
+
+- In a small area around it (10° ?) we reduce the voltage limits to slow it down. (1V or 2V amplitude ?) (1st zone)
+
+- Outside this we just give 0V and have a safe shutdown for 1 (?) second to get some debug traces.  (2nd zone)
+
+#image("figures/errorZones.png")
+
+(safety bounds not for scale, we have to decide)
+
+#image("figures/racetrack.png")
+Imagine this as a racetrack where in the 0th zone you can drive freely, in the 1st zone you are slowed down for safety but you can still make it back, and the 2nd zone is a no-go.
+
+== Low level safety systems.
+
+Going forward we are going to complicate the Simulink scheme a lot so my proposal is to implement all the safety checks in one block that we are going to reuse every time we want to interface with the target plant.
+
+#image("figures/controllerExample.png")
+
+Example of a generic control scheme: the intrinsic safety measures don't clutter the high-level design.
+
+All the interesting signals of the plant are muxed to be able to connect to the logger with a single cable. We can always add other signals from the controler with a muxer afterwards.
+
+As a quick reference here is the index of all the signals.
+
+#table(
+  columns: (auto, auto, auto,auto, auto),
+  inset: 10pt,
+  align: horizon,
+  table.header(
+    [muxer id], [.mat row], [*Name*],[Unit],[Description]
+  ),
+  [1],[2],[ENC0 / Y0],[rad],[angular distance from rest position],
+  [2],[3],[ENC1 / Y1],[rad],[angular distance from rest position],
+  [3],[4],[U0],[V],[voltage requested by control law (copy of input signal)],
+  [4],[5],[U1],[V],[voltage requested by control law (copy of input signal)],
+  [5],[6],[U0_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup)],
+  [6],[7],[U1_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup)],
+  [7],[8],[EC0],[/],[Error code for joint 0],
+  [8],[9],[EC1],[/],[Error code for joint 1],
+)
+
+#page(flipped: true,margin: 1cm)[
+
+#image("figures/safetyscheme.png")
+
+Schematics of the safety system.
+
+Copy of the code in the function block:
+```matlab
+function y = test_bounds(u, upper_0, lower_0, upper_1, lower_1)
+%  0 = everything ok , 1 = low voltage ,  2 = shutting down
+if u<upper_0 && u>lower_0
+    y = 0;
+elseif u<upper_1 && u>lower_1
+    y = 1;
+else
+    y = 2;
+end
+```
+]
+
+
+
