@@ -8,9 +8,9 @@ function [isProper] = smartPlotEncVoltage(data,filename,filter)
 Ts = 0.002;
 CheckTime = 0.75;
 CheckIndex = int32(CheckTime/Ts);
-
-if size(data,1)>3
-    t = data(1,:); % get timeline
+t = data(1,:); % get timeline
+if size(data,1)>3 %more than three lines
+    
     if size(data,2)>CheckIndex
         isProper = true;
         
@@ -87,9 +87,9 @@ if size(data,1)>3
                 title('Motor Inputs');
                 legend(["M 0","M 1"],'Location','northwest');
     end
-   else 
+else 
 
-    subplot(2,1,1);
+    % subplot(2,1,1);
             hold on;
             plot(t ,data(2,:)/(2048/pi));
             plot(t ,data(3,:)/(2048/pi));
@@ -99,17 +99,18 @@ if size(data,1)>3
             sgtitle(filename,'Interpreter','none');
             title('Encoders');
             legend(["Enc 0","Enc 1"],'Location','northwest');
-        subplot(2,1,2); 
-            hold on;
-            plot(t ,data(4,:));
-            plot(t ,data(5,:));
-            ylabel("V");
-            xlabel("time (s)");
-            hold off
-            title('Motor Inputs');
-            legend(["M 0","M 1"],'Location','northwest');
+        % subplot(2,1,2); 
+        %     hold on;
+        %     plot(t ,data(4,:));
+        %     plot(t ,data(5,:));
+        %     ylabel("V");
+        %     xlabel("time (s)");
+        %     hold off
+        %     title('Motor Inputs');
+        %     legend(["M 0","M 1"],'Location','northwest');
     
     isProper = false;
 
 end
 hold off
+end
