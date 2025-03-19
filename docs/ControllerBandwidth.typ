@@ -89,7 +89,7 @@ $ |G_theta^min (j omega_(max) )| = 0.83/20 = 0.0419 = -27.5582 "dB" $
 
 Let's plot the bode gain and see where it crosses -27dB:
 
-#image("figures/asympt_angle.png")
+#image("figures/saturation_crossing.png")
 
 
 It happens at around *26rad/s.*
