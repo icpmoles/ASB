@@ -113,7 +113,9 @@ Test at 26 rad/s, amplitude = $theta_ ("pp")/2 =  0.4189 "rad"$
 #image("figures/19marchvoltages.png", width: 85%)
 
 
-It follows the angle trajectory in its full range with minimal saturation (see blue line in the second graph).
+It almost follows the angle trajectory in its full range with some saturation (see blue line in the second graph).
+
+This is due to the fact that at 26rad/s we are already at -3dB (70%) in terms gain.
 
 = Comments
 
