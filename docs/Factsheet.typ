@@ -8,7 +8,7 @@
     "Iacopo Moles",
   ),
   group: "Automatici Strike Back",
-  watermark: "NOT FINAL"
+  watermark: ""
 )
 
 #let ob = [$omega_b$]
@@ -129,4 +129,27 @@ table.header(
   [ Rise Time #FillCell [s]],[0.0620],[ 0.0620],
   [ Settling Time #FillCell [s]],[0.1880],[ 0.1920],
   [Overshoot #FillCell [%]],[5.6800],[6.0723]
+)
+
+
+= MISC
+
+- Conversion from encoder steps to radians: 
+$ "(angle in radians)" = "(encoder steps)" times (2 pi) / 4096 
+="(encoder steps)" times pi / 2048 $
+- Hz to Rad/s and vice-versa:
+
+$ omega = 2 pi f  \ f = omega /(2 pi) $
+
+- .mat file row structure
+#table(
+  columns: (auto, auto,auto),
+table.header(
+     [*Row*],[*Quantity*],[*Unit*]
+  ),
+  [1],[time],[s],
+  [2],[Encoder 0 ],[steps],
+  [3],[Encoder 1 ],[steps],
+  [4],[Motor 0 ],[V],
+  [5],[Motor 1 ],[V],
 )
