@@ -87,7 +87,7 @@ Voltage #sym.arrow.r Angular Speed transfer function: $G_omega (s) = mu / (tau s
 
 
 Voltage #sym.arrow.r Shaft angle transfer function:  $G_theta (s) = 1/ s mu / (tau s + 1) $
-=== Estimated parameters
+=== Estimated parameters \*
 
 #let FillCell = box(width: 1fr, repeat[ ])
 
@@ -102,6 +102,7 @@ table.header(
   [ $1/tau$ (Pole of the mechanical system)#FillCell [rad/s]],[19.8],[18],
 )
 
+\* Unreliable for now, take with a pinch of salt.
 
 = Joint space
 
@@ -141,15 +142,34 @@ $ "(angle in radians)" = "(encoder steps)" times (2 pi) / 4096
 
 $ omega = 2 pi f  \ f = omega /(2 pi) $
 
-- .mat file row structure
+- .mat file row structure 1st, 2nd and 3rd labs
 #table(
   columns: (auto, auto,auto),
 table.header(
-     [*Row*],[*Quantity*],[*Unit*]
+     [*.mat Row*],[*Quantity*],[*Unit*]
   ),
   [1],[time],[s],
   [2],[Encoder 0 ],[steps],
   [3],[Encoder 1 ],[steps],
   [4],[Motor 0 ],[V],
   [5],[Motor 1 ],[V],
+  [6],[ $omega$ Natural Frequency (only for looong test) ],[rad/s],
+)
+
+- .mat file row structure 3rd lab with PLANT 🌴
+
+#table(
+  columns: (auto, auto, auto,auto, auto),
+  align: horizon,
+  table.header(
+    [muxer id], [*.mat row*], [*Name*],[Unit],[Description]
+  ),
+  [1],[2],[ENC0 / Y0],[rad],[angular distance from rest position],
+  [2],[3],[ENC1 / Y1],[rad],[angular distance from rest position],
+  [3],[4],[U0],[V],[voltage requested by control law (copy of input signal)],
+  [4],[5],[U1],[V],[voltage requested by control law (copy of input signal)],
+  [5],[6],[U0_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup ?)],
+  [6],[7],[U1_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup?)],
+  [7],[8],[EC0],[/],[Error code for joint 0],
+  [8],[9],[EC1],[/],[Error code for joint 1],
 )
