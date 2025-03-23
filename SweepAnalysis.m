@@ -1,0 +1,56 @@
+function [Phase,gain] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
+%SWEEPANALYSIS given a slice of the time, input and output it analyzes the data and figures out gain and phase
+% time, u and y are 1xN vectors
+% omega = scalar in rad/s
+    Tfocus = t_steady(end)-t_steady(1);
+    ts = 1/500;
+    gain = 1;
+    T = 2*pi/omega;
+    Fv = 1/T;
+    max_samples_per_period = ceil(T/ts);
+
+    angular_resolution = 360/max_samples_per_period;
+    maxlag_n = ceil(max_samples_per_period/4);
+
+
+    %% debias
+    Integ = trapz(t_steady,y_focus);
+    b = Integ/Tfocus;
+    y_deb = y_focus - b;
+    
+    %% cross corr
+    [c,lags] = xcorr(u_focus,y_deb,maxlag_n,'biased' );
+    c = c/2;
+
+    
+    [c_max, cmaxid] = max(c);
+    focus_window = max_samples_per_period*2;
+    
+    maxlag_time = (2*maxlag_n + 1) * ts;
+    lags_time = lags * ts;
+    lags_rad = lags_time * 2 * pi / T;
+
+    Phase = lags_rad(cmaxid);
+
+    subplot(2,2,3)
+    hold on
+    plot(t_steady,y_focus)
+    plot(t_steady,y_deb)
+    legend("raw","debiased")
+    title("mech angle")
+    hold off
+
+    subplot(2,2,4)
+    title("Phase: " + rad2deg(Phase) + "°")
+    hold on
+    stem(lags*angular_resolution,c)
+    stem(rad2deg(Phase),c_max,"filled")
+    hold off
+    sgtitle(omega)
+
+end
+
+
+
+
+
