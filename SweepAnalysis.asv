@@ -4,6 +4,7 @@ function [Phase,gain] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
 % omega = scalar in rad/s
     Tfocus = t_steady(end)-t_steady(1);
     ts = 1/500;
+    gain = 1;
     T = 2*pi/omega;
     Fv = 1/T;
     max_samples_per_period = ceil(T/ts);
@@ -33,28 +34,15 @@ function [Phase,gain] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
 
 
     %% gain:
-    theta_pp = [];
-    y_mxv = [];
-    y_mxi = [];
-    y_mnv = [];
-    y_mni = [];
+
     for idx = 1:max_samples_per_period:size(t_steady,2)
-        if idx+max_samples_per_period>size(t_steady,2)
-            continue
-        else
-            final_idx = idx+max_samples_per_period;
-    
-            [y_max, y_max_id] = max(y_deb(idx:final_idx));
-            [y_min, y_min_id] = min(y_deb(idx:final_idx));
-            theta_pp(end+1) = y_max-y_min;
-            y_mxv(end+1) = y_max;
-            y_mnv(end+1) = y_min;
-            y_mxi(end+1) = t_steady(idx+y_max_id-1);
-            y_mni(end+1) = t_steady(idx+y_min_id-1);
-        end
+        final_idx = min
+
+        [u_max, umaxid] = max(u_focus(i:min())  );
+
     end
 
-    gain = mean(theta_pp);
+
 
     %% plot
 
@@ -62,11 +50,8 @@ function [Phase,gain] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
     hold on
     plot(t_steady,y_focus)
     plot(t_steady,y_deb)
-    stem(y_mxi,y_mxv,"filled")
-    stem(y_mni,y_mnv,"filled")
-    % legend("raw","debiased","peak max","peak min")
+    legend("raw","debiased")
     title("mech angle")
-    title("gain: " + gain)
     hold off
 
     subplot(2,2,4)
