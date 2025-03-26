@@ -9,11 +9,17 @@ Ts = 0.002;
 CheckTime = 0.75;
 CheckIndex = int32(CheckTime/Ts);
 t = data(1,:); % get timeline
+
 if size(data,1)>3 %more than three lines
-    
-    if size(data,2)>CheckIndex
+   if size(data,2)>CheckIndex
+
         isProper = true;
-        
+        if size(data,1)<=6 
+            angleFactor = pi/2048;
+        else
+            angleFactor = 1;
+        end
+
         if abs(data(4,CheckIndex)) > abs(data(5,CheckIndex))
             motorId = 0;
         else 
@@ -23,7 +29,7 @@ if size(data,1)>3 %more than three lines
         motorV = data(4+motorId,CheckIndex);
         
     
-        if filter   
+        if filter || size(data,1)<=6 
             gridRows = 3;
         else
             gridRows = 2;
@@ -31,8 +37,8 @@ if size(data,1)>3 %more than three lines
         f = figure;
         subplot(gridRows,1,1);
             hold on;
-            plot(t ,data(2,:)/(2048/pi));
-            plot(t ,data(3,:)/(2048/pi));
+            plot(t ,data(2,:)*angleFactor);
+            plot(t ,data(3,:)*angleFactor);
             ylabel("rad");
             xlabel("time (s)");
             hold off
@@ -52,7 +58,7 @@ if size(data,1)>3 %more than three lines
     
          if filter
             f.Position(3:4) = [500 700];
-            e = data(2+motorId,:)*pi/2048; % get "excitated" motor
+            e = data(2+motorId,:)*angleFactor; % get "excitated" motor
             pole1 = 2*pi*50;
             pole2 = 2*pi*50;
             derivAndLowPass = zpk([0],[-pole1 -pole2],(pole1 * pole2));
@@ -63,6 +69,27 @@ if size(data,1)>3 %more than three lines
                 ls.title("Estimated ang. speed");
                 ls.ylabel("omega_L (rad/s)");
                 hold off;
+         end
+
+         if filter
+            f.Position(3:4) = [500 700];
+            e = data(2+motorId,:)*angleFactor; % get "excitated" motor
+            pole1 = 2*pi*50;
+            pole2 = 2*pi*50;
+            derivAndLowPass = zpk([0],[-pole1 -pole2],(pole1 * pole2));
+            subplot(gridRows,1,3); 
+                hold on;
+                ls = lsimplot(derivAndLowPass,e,t);
+                % ls.ylim([-5 5]);
+                ls.title("Estimated ang. speed");
+                ls.ylabel("omega_L (rad/s)");
+                hold off;
+         end
+
+         if size(data,1)<=6  
+            subplot(gridRows,1,3); 
+            plot(t ,data(6,:));
+            title("frequency voltage (rad/s)")
          end
     
 
@@ -77,7 +104,7 @@ if size(data,1)>3 %more than three lines
                 sgtitle(filename,'Interpreter','none');
                 title('Encoders');
                 legend(["Enc 0","Enc 1"],'Location','northwest');
-            subplot(2,1,2); 
+      subplot(2,1,2); 
                 hold on;
                 plot(t ,data(4,:));
                 plot(t ,data(5,:));
@@ -87,6 +114,7 @@ if size(data,1)>3 %more than three lines
                 title('Motor Inputs');
                 legend(["M 0","M 1"],'Location','northwest');
     end
+    
 else 
 
     % subplot(2,1,1);

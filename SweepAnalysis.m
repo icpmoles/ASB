@@ -1,4 +1,4 @@
-function [Phase,gain] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
+function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
 %SWEEPANALYSIS given a slice of the time, input and output it analyzes the data and figures out gain and phase
 % time, u and y are 1xN vectors
 % omega = scalar in rad/s
@@ -32,12 +32,12 @@ function [Phase,gain] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
     Phase = lags_rad(cmaxid);
 
 
-    %% gain:
+    %% peak to peak method:
     theta_pp = [];
-    y_mxv = [];
-    y_mxi = [];
-    y_mnv = [];
-    y_mni = [];
+    y_mxv = []; % values of max peaks
+    y_mxi = []; % timings of max peaks
+    y_mnv = []; % values of min peaks
+    y_mni = []; % timings of min peaks
     for idx = 1:max_samples_per_period:size(t_steady,2)
         if idx+max_samples_per_period>size(t_steady,2)
             continue
