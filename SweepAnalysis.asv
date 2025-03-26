@@ -35,22 +35,35 @@ function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, om
     %% peak to peak method:
     theta_pp = [];
     y_mxv = []; % values of max peaks
-    y_mxi = []; % index of max peaks
-    y_mnv = []; % values of max peaks
-    y_mni = []; 
+    y_mxi = []; % timings of max peaks
+    y_mnv = []; % values of min peaks
+    y_mni = []; % timings of min peaks
+    delays = [];
     for idx = 1:max_samples_per_period:size(t_steady,2)
         if idx+max_samples_per_period>size(t_steady,2)
             continue
         else
             final_idx = idx+max_samples_per_period;
-    
+            % find max of volt
+            [u_max, u_max_id] = max(u_focus(idx:final_idx));
+            [u_min, u_min_id] = min(u_focus(idx:final_idx)); 
+            
+            % find max of angle
             [y_max, y_max_id] = max(y_deb(idx:final_idx));
             [y_min, y_min_id] = min(y_deb(idx:final_idx));
+
+            % anglepeak to peak: find and save for display
             theta_pp(end+1) = y_max-y_min;
             y_mxv(end+1) = y_max;
             y_mnv(end+1) = y_min;
             y_mxi(end+1) = t_steady(idx+y_max_id-1);
             y_mni(end+1) = t_steady(idx+y_min_id-1);
+            u_mxi(end+1) = t_steady(idx+u_max_id-1);
+            u_mni(end+1) = t_steady(idx+u_min_id-1);
+
+
+
+
         end
     end
 

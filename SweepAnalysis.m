@@ -38,24 +38,39 @@ function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, om
     y_mxi = []; % timings of max peaks
     y_mnv = []; % values of min peaks
     y_mni = []; % timings of min peaks
+    delays = []; % delays in time
     for idx = 1:max_samples_per_period:size(t_steady,2)
         if idx+max_samples_per_period>size(t_steady,2)
             continue
         else
             final_idx = idx+max_samples_per_period;
-    
+            % find max of volt
+            [u_max, u_max_id] = max(u_focus(idx:final_idx));
+            [u_min, u_min_id] = min(u_focus(idx:final_idx)); 
+            
+            % find max of angle
             [y_max, y_max_id] = max(y_deb(idx:final_idx));
             [y_min, y_min_id] = min(y_deb(idx:final_idx));
+
+            % anglepeak to peak: find and save for display
             theta_pp(end+1) = y_max-y_min;
             y_mxv(end+1) = y_max;
             y_mnv(end+1) = y_min;
             y_mxi(end+1) = t_steady(idx+y_max_id-1);
             y_mni(end+1) = t_steady(idx+y_min_id-1);
+            u_mxi = t_steady(idx+u_max_id-1);
+            u_mni = t_steady(idx+u_min_id-1);
+            
+            % y is always leading u:
+            delay_max = mod(-y_mxi(end) + u_mxi,T);
+            delay_min = mod(-y_mni(end) + u_mni,T);
+            delays(end+1) = (delay_max + delay_min)/2;
+
         end
     end
 
     gain = mean(theta_pp);
-
+    phase_delay = mean(delays) * 2 * pi / T;
     %% plot
 
     subplot(2,2,3)
