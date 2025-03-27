@@ -1,4 +1,4 @@
-function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, omega)
+function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, omega, plots)
 %SWEEPANALYSIS given a slice of the time, input and output it analyzes the data and figures out gain and phase
 % time, u and y are 1xN vectors
 % omega = scalar in rad/s
@@ -53,7 +53,7 @@ function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, om
             [y_min, y_min_id] = min(y_deb(idx:final_idx));
 
             % anglepeak to peak: find and save for display
-            theta_pp(end+1) = y_max-y_min;
+            theta_pp(end+1) = (y_max-y_min)/2;
             y_mxv(end+1) = y_max;
             y_mnv(end+1) = y_min;
             y_mxi(end+1) = t_steady(idx+y_max_id-1);
@@ -72,26 +72,26 @@ function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, om
     gain = mean(theta_pp);
     phase_delay = mean(delays) * 2 * pi / T;
     %% plot
-
-    subplot(2,2,3)
-    hold on
-    plot(t_steady,y_focus)
-    plot(t_steady,y_deb)
-    stem(y_mxi,y_mxv,"filled")
-    stem(y_mni,y_mnv,"filled")
-    % legend("raw","debiased","peak max","peak min")
-    title("mech angle")
-    title("gain: " + gain)
-    hold off
-
-    subplot(2,2,4)
-    title("Phase: " + rad2deg(Phase) + "°")
-    hold on
-    stem(lags*angular_resolution,c)
-    stem(rad2deg(Phase),c_max,"filled")
-    hold off
-    sgtitle(omega)
-
+    if plots
+        subplot(2,2,3)
+        hold on
+        plot(t_steady,y_focus)
+        plot(t_steady,y_deb)
+        stem(y_mxi,y_mxv,"filled")
+        stem(y_mni,y_mnv,"filled")
+        % legend("raw","debiased","peak max","peak min")
+        title("mech angle")
+        title("gain: " + gain)
+        hold off
+    
+        subplot(2,2,4)
+        title("Phase: " + rad2deg(Phase) + "°")
+        hold on
+        stem(lags*angular_resolution,c)
+        stem(rad2deg(Phase),c_max,"filled")
+        hold off
+        sgtitle(omega)
+    end
 end
 
 
