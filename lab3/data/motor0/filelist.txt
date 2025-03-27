@@ -1,0 +1,4 @@
+filelist = ["data_04-Mar-2025_10.mat", 
+"data_21-Mar-2025_10 motor0 19 to 31 rads.mat",
+"data_21-Mar-2025_20 motor0 1v.mat",
+"data_21-Mar-2025_20 motor0 31 to 40 rads 1.5v.mat"]
