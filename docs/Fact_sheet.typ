@@ -97,9 +97,9 @@ Voltage #sym.arrow.r Shaft angle transfer function:  $G_theta (s) = 1/ s mu / (t
 table.header(
     [], [*Motor 0*], [*Motor 1*],
   ),
-  [ $mu$ (DC Gain) #FillCell [$"rad"/s 1/V$]],[-1.4814],[-1.4684],
-  [ $tau$ (Time constant) #FillCell [s]],[0.0403],[0.0409],
-  [ $1/tau$ (Pole of the mechanical system)#FillCell [rad/s]],[24.8383],[24.4398],
+  [ $mu$ (DC Gain) #FillCell [$"rad"/s 1/V$]],[-1.4479],[-1.4684],
+  [ $tau$ (Time constant) #FillCell [s]],[0.0401],[0.0409],
+  [ $1/tau$ (Pole of the mechanical system)#FillCell [rad/s]],[24.9218],[24.4398],
 )
 
 \* To verify in closed loop
