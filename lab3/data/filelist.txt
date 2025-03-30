@@ -1,0 +1,4 @@
+filelist = ["data_21-Mar-2025_10 deazone mot1 pos.mat",
+"data_21-Mar-2025_20 deadzone mot0 pos.mat"
+"data_21-Mar-2025_20 deadzone mot1 neg.mat"
+"data_21-Mar-2025_20 deadzone motor0 neg.mat"]
