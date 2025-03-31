@@ -43,3 +43,50 @@ Why did it happen? Probably non-linearities at low voltage/speed compounded with
 
 N.b.: at 24 rad/s we have around 2.5° of angular resolution, 
 while at 90 rad/s we have around 10° 
+
+New estimated models:
+
+
+#table(
+  columns: (1fr, 1fr ,1fr),
+  inset: 10pt,
+table.header(
+    [], [*Motor 0*], [*Motor 1*],
+  ),
+  [ $mu$ (DC Gain) #FillCell [$"rad"/s 1/V$]],[-1.4479],[-1.4684],
+  [ $tau$ (Time constant) #FillCell [s]],[0.0401],[0.0409],
+  [ $1/tau$ (Pole )#FillCell [rad/s]],[24.9218],[24.4398],
+)
+
+
+
+
+= Verification (kind-of)
+
+At the start of Lab3 we ran some experiments with a PD tuned on a "wrong" model. As expected the step responses were off compared to the simulations.
+
+#image("figures/PD_wrong_design.png")
+
+But what if we are able it into useful insights?
+After all we know the PD parameters, and we have a (hopefully) better estimate of our motors:
+
+#image("figures/PD_real_half.png")
+
+
+#image("figures/PD_lab3_verif_no_sat.png")
+
+Aaaaand the results still don't match.
+
+But wait, we forgot to account for saturations!
+
+#image("figures/PD_real_full.png")
+
+
+#image("figures/PD_lab3_verif_w_sat.png")
+
+The results are so much better, right?
+
+#image("figures/PD_lab3_verif_w_sat_zoom.png")
+
+
+(Ignore the static error due to the deadzone on the right)

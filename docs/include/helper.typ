@@ -6,3 +6,5 @@
     [*#title*: #h(1fr) \ #body],
   )
 }
+
+#let FillCell = box(width: 1fr, repeat[ ])
