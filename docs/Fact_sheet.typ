@@ -142,6 +142,10 @@ $ "(angle in radians)" = "(encoder steps)" times (2 pi) / 4096
 
 $ omega = 2 pi f  \ f = omega /(2 pi) $
 
+- Angular resolution:
+
+ tick = $(360°)/4096 = 0.087° approx 0.09° approx 0.1° = 0.0015 "rad"$
+
 - .mat file row structure 1st, 2nd and 3rd labs
 #table(
   columns: (auto, auto,auto),
@@ -172,4 +176,28 @@ table.header(
   [6],[7],[U1_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup?)],
   [7],[8],[EC0],[/],[Error code for joint 0],
   [8],[9],[EC1],[/],[Error code for joint 1],
+)
+
+#pagebreak()
+
+- .mat file row structure 4th lab with PLANT 🌴
+
+#table(
+  columns: (auto, auto, auto,auto, auto),
+  align: horizon,
+  table.header(
+    [muxer id], [*.mat row*], [*Name*],[Unit],[Description]
+  ),
+  [1],[2],[ENC0 / Y0],[rad],[angular distance from rest position],
+  [2],[3],[ENC1 / Y1],[rad],[angular distance from rest position],
+  [3],[4],[U0],[V],[voltage requested by control law (copy of input signal)],
+  [4],[5],[U1],[V],[voltage requested by control law (copy of input signal)],
+  [5],[6],[U0_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup ?)],
+  [6],[7],[U1_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup?)],
+  [7],[8],[EC0],[/],[Error code for joint 0],
+  [8],[9],[EC1],[/],[Error code for joint 1],
+  [9],[10],[Y0_REF],[rad],[Setpoint motor 0],
+  [10],[11],[Y1_REF],[rad],[Setpoint motor 1],
+  [11],[12],[D0],[V],[Disturbance motor 0],
+  [12],[13],[D1],[V],[Disturbance motor 1],
 )
