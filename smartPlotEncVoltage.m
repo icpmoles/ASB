@@ -5,6 +5,7 @@ function [isProper] = smartPlotEncVoltage(data,filename,filter)
 % 3 = encoder 1
 % 4 = motor Volt 0
 % 5 = motor Volt 1
+data
 Ts = 0.002;
 CheckTime = 0.75;
 CheckIndex = int32(CheckTime/Ts);
