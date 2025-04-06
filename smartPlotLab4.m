@@ -18,62 +18,96 @@ e1 = data(9,:);
 
 
 if n >= 12
-   n_fig = 4;
+   n_row = 4;
 else
-   n_fig = 3;
+   n_row = 3;
 end
-% first: position
+
+%%
+
+% first row: position 0 & 1
 figure
-subplot(n_fig,1,1)
+subplot(n_row,2,1)
 sgtitle(filename)
-plot(t,y0);
-title("Angle (deg)")
-hold on
-plot(t,y1);
+plot(t,y0,"r:o");
+title("angle 0")
+ylabel("deg")
+% scatter(t,y1,"bd");
 if n >= 10
+    hold on
     y_ref0 = rad2deg(data(10,:));
-    y_ref1 = rad2deg(data(11,:));
-    plot(t,y_ref0);
-    plot(t,y_ref1);
-    legend(["theta_0","theta_1","ref_0","ref_1"])
+    plot(t,y_ref0,"r");
+    legend(["theta_0","ref_0"])
+    hold off
 else
-    legend(["theta_0","theta_1"])
+    legend(["theta_0"])
 end
+
+
+subplot(n_row,2,2)
+plot(t,y1,"b:o");
+title("angle 1")
+ylabel("deg")
+
+if n >= 10
+    hold on
+    y_ref1 = rad2deg(data(11,:));
+    plot(t,y_ref1,"b");
+    legend(["theta_1","ref_1"])
+    hold off
+else
+    legend(["theta_1"])
+end
+
+%% %second row: Control
+
+subplot(n_row,2,3)
+plot(t,u0,"r");
+title("Control 0")
+hold on
+plot(t,u0_sat,"r:o");
+legend(["U_0","sat_0"])
+ylabel("V")
+ylim([-10.5 10.5]);
 hold off
 
-%second: Control
-subplot(n_fig,1,2)
-plot(t,u0);
-title("Control (V)")
+subplot(n_row,2,4)
+plot(t,u1,"b");
+title("Control 1")
 hold on
-plot(t,u1);
-plot(t,u0_sat);
-plot(t,u1_sat);
-legend(["U_0","U_1","sat_0","sat_1"])
+plot(t,u1_sat,"b:o");
+legend(["U_1","sat_1"])
+ylabel("V")
+ylim([-10.5 10.5]);
 hold off
+
+
+%%
 
 %second to last: disturbance
 if n >= 12
     d0 = data(12,:);
     d1 = data(13,:);
-    subplot(n_fig,1,3)
+    subplot(n_row,2,5)
     plot(t,d0);
-    title("Disturbance (V)")
-    hold on
+    legend(["d0"]);
+    ylabel("V")
+    title("Disturbances")
+    subplot(n_row,2,6)
     plot(t,d1);
-    hold off
-    legend(["d0","d1"]);
+    legend(["d1"]);
+    ylabel("V")
 end
 
 
 %last: error codes
 
 
-subplot(n_fig,1,n_fig)
+subplot(n_row,2,2*n_row-1:2*n_row)
+plot(t,e0,"r--");
 title("Error")
-stem(t,e0);
 hold on
-stem(t,e1);
+plot(t,e1,"b:");
 hold off
 ylim([-0.5 2.5]);
 legend(["e0","e1"]);
