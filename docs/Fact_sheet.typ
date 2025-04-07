@@ -76,9 +76,9 @@
 = Dynamical Model
 == Mechanical & Electrical
 
-$ G(s) =  K/(L Jt) / (s^2 + gamma s + delta ) vec(1/ S 1/r , 1) = mu / (s^2 + gamma s + delta ) vec(1/ S 1/r , 1) $
+$ G(s) =  K/(L Jt) / (s^2 + gamma s + delta ) vec(1/ S 1/r , 1) = g / (s^2 + gamma s + delta ) vec(1/ S 1/r , 1) $
 
- Where $ gamma = (damp L + R J)/(Jt L)$,  $ delta = (k^2 + damp R)/(Jt L)$, $mu =  K/(Jt L) $
+ Where $ gamma = (damp L + R J)/(Jt L)$,  $ delta = (k^2 + damp R)/(Jt L)$, $g =  K/(Jt L) $
 
 
  == First order approximation (only mechanical)
