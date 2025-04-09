@@ -8,7 +8,7 @@
     "Iacopo Moles",
   ),
   group: "Automatici Strike Back",
-  watermark: "NOT FINAL"
+  watermark: ""
 )
 #set math.mat(delim: "[")
 #set math.vec(delim: "[")

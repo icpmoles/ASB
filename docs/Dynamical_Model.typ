@@ -8,7 +8,7 @@
     "Iacopo Moles",
   ),
   group: "Automatici Strike Back",
-  watermark: "NOT FINAL"
+  watermark: ""
 )
 #let om = [$omega_m$]
 #let omd = [$dot(omega)_m$]

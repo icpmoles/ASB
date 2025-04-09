@@ -8,7 +8,7 @@
     "Iacopo Moles",
   ),
   group: "Automatici Strike Back",
-  watermark: "NOT FINAL"
+  watermark: ""
 )
 
 From the first lab I understood that we needed a rectangle in workspace but then it turned out we needed it in joint/configuration space. 

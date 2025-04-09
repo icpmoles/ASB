@@ -1,0 +1,3 @@
+$$ \tau = M(\theta) \ddot\theta + C(\theta, \dot\theta)\dot\theta + g(\theta) $$
+
+$$ \tau = M(\theta) \ddot\theta + C(\theta, \dot\theta)\dot\theta  \cancel{+ g(\theta)} $$

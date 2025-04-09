@@ -87,7 +87,7 @@ Voltage #sym.arrow.r Angular Speed transfer function: $G_omega (s) = mu / (tau s
 
 
 Voltage #sym.arrow.r Shaft angle transfer function:  $G_theta (s) = 1/ s mu / (tau s + 1) $
-=== Estimated parameters \*
+=== Estimated parameters 
 
 #let FillCell = box(width: 1fr, repeat[ ])
 
@@ -101,8 +101,6 @@ table.header(
   [ $tau$ (Time constant) #FillCell [s]],[0.0401],[0.0409],
   [ $1/tau$ (Pole of the mechanical system)#FillCell [rad/s]],[24.9218],[24.4398],
 )
-
-\* To verify in closed loop
 
 = Joint space
 
