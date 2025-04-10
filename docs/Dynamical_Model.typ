@@ -167,6 +167,6 @@ $ s^2 tm J + s tm beta = T
  $
 
 $ d/(d t) vec(theta_l,omega_m)  = 
-mat(0 ,1/r; 0, beta-k^2/R) 
-vec(theta_l,omega_m) + vec(0, k/R) V
+mat(0 ,1/r; 0, -(beta+k^2/R)/J) 
+vec(theta_l,omega_m) + vec(0, k/(R J)) V
 $
