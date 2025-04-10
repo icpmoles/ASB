@@ -80,7 +80,7 @@ function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,u_focus, y_focus, om
         stem(y_mxi,y_mxv,"filled")
         stem(y_mni,y_mnv,"filled")
         % legend("raw","debiased","peak max","peak min")
-        title("mech angle")
+        title("OUTPUT SIGNAL")
         title("gain: " + gain)
         hold off
     

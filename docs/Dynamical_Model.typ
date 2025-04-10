@@ -150,3 +150,23 @@ Depending on how much we trust the parameters in the datasheet we can already sy
 
 Then before the second lab, with the model obtained from the parameter identification procedure we can synthesize a new "true to life" controller.
 ]
+
+
+= Simplified Mechanical Model
+
+#let tm = [$theta_m$]
+
+$ s^2 tm J + s tm beta = T
+\ s^2 tm J + s tm beta = k/R V - s tm k^2/R
+\ s tm [ s J + (beta + k^2/R)] =  k/R V
+
+\ G_tm (s) = tm/V = 1/s  k/R / ( s J + (beta + k^2/R) ) =
+1/s mu / (tau s + 1)
+\ G_tl (s) = tm/V = 1/s  k/(r R) / ( s J + (beta + k^2/R) ) =
+1/s mu / (tau s + 1)
+ $
+
+$ d/(d t) vec(theta_l,omega_m)  = 
+mat(0 ,1/r; 0, beta-k^2/R) 
+vec(theta_l,omega_m) + vec(0, k/R) V
+$
