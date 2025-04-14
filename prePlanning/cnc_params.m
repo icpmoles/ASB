@@ -18,7 +18,7 @@ piv_to_cog = L_link/2;  %m
 
 % sanity check
 
-J_l_pivot_steiner = J_l_cog + M_l * piv_to_cog^2
+J_l_pivot_steiner = J_l_cog + M_l * piv_to_cog^2;
 
 %% Motor
 La = 0.18e-3;

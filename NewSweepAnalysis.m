@@ -1,8 +1,7 @@
-function [Phase,gain, phase_delay] = SweepAnalysis(t_steady,inp_focus, out_focus, omega, plots)
+function [Phase,gain, phase_delay] = NewSweepAnalysis(t_steady,inp_focus, out_focus, omega, plots)
 %SWEEPANALYSIS given a slice of the time, input and output it analyzes the data and figures out gain and phase
 % time, u and y are 1xN vectors
 % omega = scalar in rad/s
-warning('Use NewSweepAnalysis instead')
     Tfocus = t_steady(end)-t_steady(1);
     ts = 1/500;
     T = 2*pi/omega;
@@ -34,7 +33,7 @@ warning('Use NewSweepAnalysis instead')
 
 
     %% peak to peak method:
-    % inp_pp = [];
+    inp_pp = [];
     out_pp = [];
     out_mxv = []; % values of max peaks
     out_mxi = []; % timings of max peaks
@@ -49,9 +48,8 @@ warning('Use NewSweepAnalysis instead')
             % find max of input
             [inp_max, inp_max_id] = max(inp_focus(idx:final_idx));
             [inp_min, inp_min_id] = min(inp_focus(idx:final_idx)); 
-            % inp_pp(end+1) = (inp_max-inp_min)/2;
+            inp_pp(end+1) = (inp_max-inp_min)/2;
     
-
             % find max of output
             [out_max, out_max_id] = max(out_deb(idx:final_idx));
             [out_min, out_min_id] = min(out_deb(idx:final_idx));
@@ -72,8 +70,8 @@ warning('Use NewSweepAnalysis instead')
 
         end
     end
-
-    gain = mean(out_pp);
+    
+    gain = mean(out_pp)/max(inp_pp);
     phase_delay = mean(delays) * 2 * pi / T;
     %% plot
     if plots
