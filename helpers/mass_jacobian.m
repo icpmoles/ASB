@@ -6,7 +6,7 @@ function [m11, m12, m21, m22, error] = mass_jacobian(x,y,debug)
 % error = true means an error somewhere
 [a1,a2,p1,p2, error] = inverse_kin(x,y, false);
 
-L =0.127;
+L = 0.127;
 m = 0.065;
 J_l_cog = 8.74e-5;
 % J_l_cog = 4.41e-4;
@@ -44,6 +44,9 @@ l4_2 = -L *sin(a2) - L *sin(p2) * g22 + L/2 *sin(p1) * g12;
 l5_2 =  L *cos(a2) + L *cos(p2) * g22 - L/2 *cos(p1) * g12;
 l6_2 = g12;
 
+% l4_2 =  - L *sin(p2) * g22 + L/2 *sin(p1) * g12;
+% l5_2 =  + L *cos(p2) * g22 - L/2 *cos(p1) * g12;
+% l6_2 = g12;
 
 % LINK 3
 l7_1 = -L *sin(a1) - L *sin(p1) * g11 + L/2 *sin(p2) * g21;

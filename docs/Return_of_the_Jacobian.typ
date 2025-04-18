@@ -107,11 +107,11 @@ y_2 (a2,p2,p1)= L sin(a2)  + L sin(p2) - L/2 sin(p1) \
 theta_2  (a2,p2,p1)= p1) $
 
 
-$ lamb(4,2) &=part(x_2,a1) =
+$ lamb(4,2) &=part(x_2,a2) =
 -L sin(a2) -L sin(p2) g_22 + L/2 sin(p1) g_12
  \
-lamb(5,2) &=part(y_2,a1) = L cos(a2) +  L cos(p2) g_22 - L/2 cos(p1) g_12 \
-lamb(6,2) &=part(t2,a1) =  g_12 \
+lamb(5,2) &=part(y_2,a2) = L cos(a2) +  L cos(p2) g_22 - L/2 cos(p1) g_12 \
+lamb(6,2) &=part(t2,a2) =  g_12 \
  $
 
 
@@ -136,11 +136,11 @@ y_3 (a2,p2)= L sin(a2)  + L/2 sin(p2)  \
 theta_3  (a2,p2)= p2) $
 
 
-$ lamb(7,2) &= part(x_3,a1) =
+$ lamb(7,2) &= part(x_3,a2) =
 -L sin(a2) -  L/2 sin(p2) g_22
  \
-lamb(8,2) &=part(y_3,a1) = L cos(a2) + L/2 cos(p2) g_22  \
-lamb(9,2) &=part(t2,a1) =  g_22 \
+lamb(8,2) &=part(y_3,a2) = L cos(a2) + L/2 cos(p2) g_22  \
+lamb(9,2) &=part(t2,a2) =  g_22 \
  $
 
 
@@ -150,7 +150,7 @@ lamb(9,2) &=part(t2,a1) =  g_22 \
  $ lamb(10,1) =lamb(11,1) =lamb(12,1) =0 $
 
 $ lamb(10,2) &= part(x_4,a2) =  -L/2 sin(a2) \
-lamb(11,2) &=part(y_4,a1) =  L/2 cos(a2) \
+lamb(11,2) &=part(y_4,a2) =  L/2 cos(a2) \
 lamb(12,2) &=part(t4,a2) =  1\
  $
 
