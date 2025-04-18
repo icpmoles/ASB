@@ -10,20 +10,10 @@
   group: "Automatici Strike Back",
   watermark: ""
 )
-
-= Why?
-
-The previous model wasn't elegant enough. Hopefully this makes more sense.
-
-== From the previous episodes
-#set math.mat(delim: "[")
-#set math.vec(delim: "[")
 #let thetaa1 = [$theta_(a 1)$]
 #let thetaa2 = [$theta_(a 2)$]
 #let thetap1 = [$theta_(p 1)$]
 #let thetap2 = [$theta_(p 2)$]
-
-
 
 #let thetaa1d = [$dot(theta)_(a 1)$]
 #let thetaa2d = [$dot(theta)_(a 2)$]
@@ -31,12 +21,102 @@ The previous model wasn't elegant enough. Hopefully this makes more sense.
 #let thetap2d = [$dot(theta)_(p 2)$]
 
 #let omrv = [$vec(thetap1d, thetap2d)$]
-
 #let qv = [$vec(thetaa1d, thetaa2d)$]
 #let Jr =[ $ mat(
-  sin(thetap1),-sin(thetap2);
-  cos(thetap1),-cos(thetap2);
+  -sin(thetap1),sin(thetap2);
+  -cos(thetap1),cos(thetap2);
 ) $ ]
+
+
+#let Jq =[ $ mat(
+  sin(thetaa1),-sin(thetaa2);
+  cos(thetaa1),-cos(thetaa2);
+) $ ]
+// We generated the example code below so you can see how
+// your document will look. Go ahead and replace it with
+// your own content!
+
+= Kinematic Equations
+
+(Angle conventions taken from "A Method for Optimal Kinematic Design of
+Five-bar Planar Parallel Manipulators" )
+#image("figures/chain.png")
+
+The kinematic chain in polar form is written as:
+
+$ L e ^ (j thetaa1) +  L e ^ (j thetap1) = 2L +
+ L e ^ (j thetaa2) +  L e ^ (j thetap2) $
+
+ Deriving in time and dividing by $L$:
+
+ $ thetaa1d e ^ (j (thetaa1 + pi/2)) +  thetap1d e ^ (j (thetap1 + pi/2)) =
+ thetaa2d e ^ (j (thetaa2 + pi/2)) +  thetap2d e ^ (j (thetap2 + pi/2)) $
+
+ In Cartesian form:
+
+ $ cases(
+  thetaa1d sin(thetaa1) + thetap1d sin(thetap1) &= thetaa2d sin(thetaa2) + thetap2d sin(thetap2) ,
+  thetaa1d cos(thetaa1) + thetap1d cos(thetap1) &= thetaa2d cos(thetaa2) + thetap2d cos(thetap2) ,
+) $<cart1>
+
+= Rotational Singularities
+
+Let's define
+
+$ omega_r = vec(thetap1d, thetap2d) ,  q = vec(thetaa1d, thetaa2d)  $
+
+We want to find a form like
+
+$ J_r omega_r = J_q q $
+
+(taken from "Inverse kinematics and singularity analysis of a redundant
+parallel robot ")
+
+We can rearrange to have all the passive and active joint angles on one side:
+ $ cases(
+  thetaa1d sin(thetaa1) - thetaa2d sin(thetaa2)  &=   - thetap1d sin(thetap1)  +  thetap2d sin(thetap2) ,
+  thetaa1d cos(thetaa1) - thetaa2d cos(thetaa2) &=   - thetap1d cos(thetap1)  + thetap2d cos(thetap2d)  ,
+) $<cart2>
+
+Convert it in matrix form
+
+$ Jr omrv = Jq qv $
+
+With these two Jacobian we can analyze the singularities between the actuators and the rotation of the passive joints:
+
+$ det(J_r) = cos(thetap1) sin(thetap2) - sin(thetap1) cos(thetap2) = sin(thetap1 - thetap2) $
+
+$ exists J_r ^(-1)   arrow.l.r thetap1 - thetap2 != k pi , k in NN $<notalligned>
+
+This condition is asking for the 2nd and 3rd links to not be parallel.
+
+If $J_r$ is invertible then we have:
+
+$  omega_r = J_r ^(-1) J_q q = Lambda_q^r q $
+
+$ Lambda_q^r = 1 / sin(thetap1 - thetap2)  
+mat(
+  cos(thetap2),-sin(thetap2);
+  cos(thetap1),-sin(thetap1);
+)  Jq = \ =
+
+1 / sin(thetap1 - thetap2) 
+mat(
+  "left","as an";
+  "exercise to","the reader";
+) = \ =
+
+1 / sin(thetap1 - thetap2) 
+mat(
+sin(thetaa1 - thetap2),sin(thetap2 - thetaa2);
+sin(thetaa1 - thetap1),sin(thetap1 - thetaa2);
+) = mat( g_(1 1) , g_(1 2) ;
+g_(2 1), g_(2 2) )
+$
+
+// $ omrv = mat( g_(1 1) , g_(1 2) ;
+// g_(2 1), g_(2 2) ) qv $<jacobianrot>
+
 
 $ omrv =
 
@@ -140,7 +220,7 @@ $ lamb(7,2) &= part(x_3,a2) =
 -L sin(a2) -  L/2 sin(p2) g_22
  \
 lamb(8,2) &=part(y_3,a2) = L cos(a2) + L/2 cos(p2) g_22  \
-lamb(9,2) &=part(t2,a2) =  g_22 \
+lamb(9,2) &=part(t3,a2) =  g_22 \
  $
 
 

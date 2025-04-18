@@ -44,9 +44,6 @@ l4_2 = -L *sin(a2) - L *sin(p2) * g22 + L/2 *sin(p1) * g12;
 l5_2 =  L *cos(a2) + L *cos(p2) * g22 - L/2 *cos(p1) * g12;
 l6_2 = g12;
 
-% l4_2 =  - L *sin(p2) * g22 + L/2 *sin(p1) * g12;
-% l5_2 =  + L *cos(p2) * g22 - L/2 *cos(p1) * g12;
-% l6_2 = g12;
 
 % LINK 3
 l7_1 = -L *sin(a1) - L *sin(p1) * g11 + L/2 *sin(p2) * g21;
