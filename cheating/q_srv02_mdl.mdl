@@ -1,0 +1,2023 @@
+Model {
+  Name			  "q_srv02_mdl"
+  Version		  7.0
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.203"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Tue Jul 31 14:07:54 2001"
+  Creator		  "MLevis"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "FKhan"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri May 29 17:58:26 2009"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:203>"
+  ConfigurationManager	  "none"
+  UserBdParams		  "CheckForProblematicBlocks;"
+  SimulationMode	  "external"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  10000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  off
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.3.0"
+      Array {
+	Type			"Handle"
+	Dimension		7
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "PositivePriorityOrder"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  StartTime		  "0.0"
+	  StopTime		  "5"
+	  AbsTol		  "1e-6"
+	  FixedStep		  "0.001"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode1"
+	  SolverName		  "ode1"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  on
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  RateTranMode		  "Deterministic"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.3.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  off
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  BlockReduction	  off
+	  BooleanDataType	  off
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  on
+	  OptimizeBlockIOStorage  off
+	  BufferReuse		  off
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  off
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  off
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.3.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"none"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "none"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "warning"
+	  MultiTaskCondExecSysMsg "none"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  StrictBusMsg		  "None"
+	  LoggingUnavailableSignals "error"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.3.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "32-bit Generic"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.3.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    2
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  SystemTargetFile	  "quarc_windows.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "quarc_default_tmf"
+	  Description		  "Quarc Win32 Target"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "quarc_windows_make_rtw_hook"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  on
+	  GenerateTraceInfo	  off
+	  RTWCompilerOptimization "Off"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement on
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.STFCustomTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		15
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      TargetFcnLib	      "ansi_tfl_tmw.mat"
+	      TargetLibSuffix	      ".lib"
+	      TargetPreCompLibLocation "C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\QuaRC\\lib\\2007b\\windows\\release"
+	      GenFloatMathFcnCalls    "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      CompOptLevelCompliant   off
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      off
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      SystemTargetFile	      "quarc_windows.tlc"
+	      DialogCategory	      0
+	      Array {
+		Type			"Handle"
+		Dimension		1
+		Simulink.GRTTargetCC {
+		  $BackupClass		  "Simulink.TargetCC"
+		  $ObjectID		  11
+		  Array {
+		    Type		    "Cell"
+		    Dimension		    15
+		    Cell		    "IncludeMdlTerminateFcn"
+		    Cell		    "CombineOutputUpdateFcns"
+		    Cell		    "SuppressErrorStatus"
+		    Cell		    "ERTCustomFileBanners"
+		    Cell		    "GenerateSampleERTMain"
+		    Cell		    "GenerateTestInterfaces"
+		    Cell		    "ModelStepFunctionPrototypeControlCompliant"
+		    Cell		    "MultiInstanceERTCode"
+		    Cell		    "PurelyIntegerCode"
+		    Cell		    "SupportNonFinite"
+		    Cell		    "SupportComplex"
+		    Cell		    "SupportAbsoluteTime"
+		    Cell		    "SupportContinuousTime"
+		    Cell		    "SupportNonInlinedSFcns"
+		    Cell		    "PortableWordSizes"
+		    PropName		    "DisabledProps"
+		  }
+		  Version		  "1.3.0"
+		  TargetFcnLib		  "ansi_tfl_tmw.mat"
+		  TargetLibSuffix	  ".lib"
+		  TargetPreCompLibLocation "C:\\DOCUME~1\\ALLUSE~1\\APPLIC~1\\QuaRC\\lib\\2007b\\windows\\release"
+		  GenFloatMathFcnCalls	  "ANSI_C"
+		  UtilityFuncGeneration	  "Auto"
+		  GenerateFullHeader	  on
+		  GenerateSampleERTMain	  off
+		  GenerateTestInterfaces  off
+		  IsPILTarget		  off
+		  ModelReferenceCompliant on
+		  CompOptLevelCompliant	  off
+		  IncludeMdlTerminateFcn  on
+		  CombineOutputUpdateFcns off
+		  SuppressErrorStatus	  off
+		  IncludeFileDelimiter	  "Auto"
+		  ERTCustomFileBanners	  off
+		  SupportAbsoluteTime	  on
+		  LogVarNameModifier	  "rt_"
+		  MatFileLogging	  off
+		  MultiInstanceERTCode	  off
+		  SupportNonFinite	  on
+		  SupportComplex	  on
+		  PurelyIntegerCode	  off
+		  SupportContinuousTime	  on
+		  SupportNonInlinedSFcns  on
+		  EnableShiftOperators	  on
+		  ParenthesesLevel	  "Nominal"
+		  PortableWordSizes	  off
+		  ModelStepFunctionPrototypeControlCompliant off
+		  ExtMode		  on
+		  ExtModeStaticAlloc	  off
+		  ExtModeTesting	  off
+		  ExtModeStaticAllocSize  1000000
+		  ExtModeTransport	  0
+		  ExtModeMexFile	  "quarc_comm"
+		  ExtModeMexArgs	  "'-w -d %d -uri %u'"
+		  ExtModeIntrfLevel	  "Level1"
+		  RTWCAPISignals	  off
+		  RTWCAPIParams		  off
+		  RTWCAPIStates		  off
+		  GenerateASAP2		  off
+		}
+		PropName		"Components"
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"QuarcMatFileLogging"
+		Value			off
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"StopOnOverrun"
+		Value			off
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"FastSystemTimer"
+		Value			off
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"HaveStdio"
+		Value			on
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"DynamicReconfiguration"
+		Value			on
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"Debug"
+		Value			off
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"DebugHeap"
+		Value			off
+	      }
+	      CustomProperty {
+		DataType		"RTWOptions_EnumType_C__Program Files_Quanser_QuaRC_quarc_quarc_windows_AssertionAction"
+		EnumStrPairs {
+		  Value			  0
+		  String		  "Ignore"
+		  Value			  1
+		  String		  "Stop model with an error"
+		  Value			  2
+		  String		  "Print assertion"
+		}
+		Name			"AssertionAction"
+		Value			"Stop model with an error"
+	      }
+	      CustomProperty {
+		DataType		"int32"
+		Name			"MinimumThreadPriority"
+		Value			0
+	      }
+	      CustomProperty {
+		DataType		"int32"
+		Name			"StackSize"
+		Value			0
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"PermissibleCPUs"
+		Value			"[]"
+	      }
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 "
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  CheckForProblematicBlocks "on"
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "fixdt(1,16,0)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "[]"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      MultiPortSwitch
+      Inputs		      "4"
+      zeroidx		      off
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      WaveForm		      "sine"
+      TimeSource	      "Use simulation time"
+      Amplitude		      "1"
+      Frequency		      "1"
+      Units		      "Hertz"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      StateSpace
+      A			      "1"
+      B			      "1"
+      C			      "1"
+      D			      "1"
+      X0		      "0"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      TransferFcn
+      Numerator		      "[1]"
+      Denominator	      "[1 2 1]"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "q_srv02_mdl"
+    Location		    [1894, 70, 3118, 880]
+    Open		    on
+    ModelBrowserVisibility  on
+    ModelBrowserWidth	    212
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Reference
+      Name		      "Amplitude (V)"
+      Ports		      [1, 1]
+      Position		      [130, 150, 160, 180]
+      SourceBlock	      "simulink/Math\nOperations/Slider\nGain"
+      SourceType	      "Slider Gain"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      low		      "0"
+      gain		      "0"
+      high		      "5"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant"
+      Position		      [30, 210, 60, 240]
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      Ports		      [2, 1]
+      Position		      [575, 326, 580, 364]
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Offset (V)"
+      Ports		      [1, 1]
+      Position		      [130, 210, 160, 240]
+      SourceBlock	      "simulink/Math\nOperations/Slider\nGain"
+      SourceType	      "Slider Gain"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      low		      "-5"
+      gain		      "2"
+      high		      "5"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Powered by QuaRC"
+      Ports		      []
+      Position		      [450, 14, 675, 89]
+      ShowName		      off
+      SourceBlock	      "quarc_library/Logos/Powered by QuaRC"
+      SourceType	      "Quanser WinCon Logo"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "SRV02 Model"
+      Ports		      [1, 2]
+      Position		      [320, 272, 455, 383]
+      BackgroundColor	      "green"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"SRV02 Model"
+	Location		[37, 174, 604, 332]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Vi (V)"
+	  Position		  [25, 48, 55, 62]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Actuator Dynamics"
+	  Ports			  [1, 1]
+	  Position		  [95, 32, 180, 78]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "Actuator Dynamics"
+	    Location		    [52, 264, 651, 457]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Vi (V)"
+	      Position		      [35, 63, 65, 77]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Amplifier \nGain (V/V)"
+	      Position		      [285, 43, 365, 97]
+	      Gain		      "K_CABLE"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Saturate
+	      Name		      "DACB\nSaturation (V)"
+	      Position		      [215, 55, 245, 85]
+	      UpperLimit	      "VMAX_DAC"
+	      LowerLimit	      "-VMAX_DAC"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Inverse Amplifier \nGain (V/V)"
+	      Position		      [95, 40, 175, 100]
+	      Gain		      "1/K_CABLE"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Saturate
+	      Name		      "UPM \nSaturation (V)"
+	      Position		      [415, 55, 445, 85]
+	      UpperLimit	      "VMAX_UPM"
+	      LowerLimit	      "-VMAX_UPM"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Vm (V)"
+	      Position		      [505, 63, 535, 77]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Inverse Amplifier \nGain (V/V)"
+	      SrcPort		      1
+	      DstBlock		      "DACB\nSaturation (V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "DACB\nSaturation (V)"
+	      SrcPort		      1
+	      DstBlock		      "Amplifier \nGain (V/V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Amplifier \nGain (V/V)"
+	      SrcPort		      1
+	      DstBlock		      "UPM \nSaturation (V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Vi (V)"
+	      SrcPort		      1
+	      DstBlock		      "Inverse Amplifier \nGain (V/V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "UPM \nSaturation (V)"
+	      SrcPort		      1
+	      DstBlock		      "Vm (V)"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      Name		      "Actuator Dynamics: Vi is the ideal voltage and Vm is the \ninput motor voltage after going through the DACB and UPM limitiations."
+	      Position		      [9, 23]
+	      HorizontalAlignment     "left"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  TransferFcn
+	  Name			  "Transfer Fcn"
+	  Position		  [240, 37, 300, 73]
+	  Numerator		  "[K]"
+	  Denominator		  "[tau 1]"
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Vel to Pos"
+	  Ports			  [1, 1]
+	  Position		  [360, 40, 390, 70]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "theta_l (rad)"
+	  Position		  [450, 48, 480, 62]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "omega_l (rad/s)"
+	  Position		  [445, 103, 475, 117]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "Vi (V)"
+	  SrcPort		  1
+	  DstBlock		  "Actuator Dynamics"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Actuator Dynamics"
+	  SrcPort		  1
+	  DstBlock		  "Transfer Fcn"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vel to Pos"
+	  SrcPort		  1
+	  DstBlock		  "theta_l (rad)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Transfer Fcn"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "Vel to Pos"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 55]
+	    DstBlock		    "omega_l (rad/s)"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "SRV02-ET Speed"
+      Ports		      [2, 2]
+      Position		      [320, 149, 445, 236]
+      BackgroundColor	      "orange"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"SRV02-ET Speed"
+	Location		[421, 512, 788, 746]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "spd src"
+	  Position		  [30, 93, 60, 107]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Vi (V)"
+	  Position		  [30, 128, 60, 142]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Pos Src"
+	  Position		  [30, 50, 60, 80]
+	  Value			  "2"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "SRV02-ET"
+	  Ports			  [3, 3]
+	  Position		  [110, 46, 250, 154]
+	  BackgroundColor	  "orange"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "SRV02-ET"
+	    Location		    [102, 265, 838, 853]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pos src"
+	      Position		      [530, 288, 560, 302]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "spd src"
+	      Position		      [525, 448, 555, 462]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Vi (V)"
+	      Position		      [20, 93, 50, 107]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Actuator Dynamics"
+	      Ports		      [1, 2]
+	      Position		      [85, 74, 170, 121]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Actuator Dynamics"
+		Location		[151, 514, 940, 821]
+		Open			off
+		ModelBrowserVisibility	on
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Vi (V)"
+		  Position		  [20, 83, 50, 97]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Amplifier \nGain (V/V)"
+		  Position		  [490, 133, 570, 187]
+		  Gain			  "-K_CABLE"
+		  ParameterDataTypeMode	  "Inherit via internal rule"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Saturate
+		  Name			  "DACB\nSaturation (V)"
+		  Position		  [385, 75, 415, 105]
+		  UpperLimit		  "VMAX_DAC"
+		  LowerLimit		  "-VMAX_DAC"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Direction Convention:\n(Right-Hand) system"
+		  Position		  [95, 72, 140, 108]
+		  Gain			  "-1"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Inverse Amplifier \nGain (V/V)"
+		  Position		  [265, 64, 345, 116]
+		  Gain			  "1/K_CABLE"
+		  ParameterDataTypeMode	  "Inherit via internal rule"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Saturate
+		  Name			  "UPM \nSaturation (V)"
+		  Position		  [195, 75, 225, 105]
+		  UpperLimit		  "VMAX_UPM"
+		  LowerLimit		  "-VMAX_UPM"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Vdaq (V)"
+		  Position		  [620, 83, 650, 97]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Vm (V)"
+		  Position		  [620, 153, 650, 167]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Line {
+		  SrcBlock		  "Direction Convention:\n(Right-Hand) system"
+		  SrcPort		  1
+		  DstBlock		  "UPM \nSaturation (V)"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Amplifier \nGain (V/V)"
+		  SrcPort		  1
+		  DstBlock		  "Vm (V)"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "DACB\nSaturation (V)"
+		  SrcPort		  1
+		  Points		  [35, 0]
+		  Branch {
+		    DstBlock		    "Vdaq (V)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 70]
+		    DstBlock		    "Amplifier \nGain (V/V)"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Inverse Amplifier \nGain (V/V)"
+		  SrcPort		  1
+		  DstBlock		  "DACB\nSaturation (V)"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "UPM \nSaturation (V)"
+		  SrcPort		  1
+		  DstBlock		  "Inverse Amplifier \nGain (V/V)"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Vi (V)"
+		  SrcPort		  1
+		  DstBlock		  "Direction Convention:\n(Right-Hand) system"
+		  DstPort		  1
+		}
+		Annotation {
+		  Name			  "Actuator Dynamics: Vi is the ideal voltage and Vm is the \ninput motor voltage after going through the DACB and UPM limitiations."
+		  Position		  [9, 23]
+		  HorizontalAlignment	  "left"
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Encoder Calibration \n(rad/count)"
+	      Position		      [170, 333, 240, 377]
+	      Gain		      "K_ENC"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      TransferFcn
+	      Name		      "Encoder High-Pass Filter"
+	      Position		      [300, 496, 450, 534]
+	      Numerator		      "[wcf_e^2 0]"
+	      Denominator	      "[1 2*zetaf_e*wcf_e wcf_e^2]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "HIL Initialize"
+	      Ports		      []
+	      Position		      [525, 39, 660, 107]
+	      AttributesFormatString  "%<object_name>"
+	      SourceBlock	      "quarc_library/Data Acquisition/Generic/Configuration/HIL Initialize"
+	      SourceType	      "HIL Initialize"
+	      object_name	      "HIL-1"
+	      board_type	      "q8"
+	      board_number	      "0"
+	      active		      on
+	      hardware_clocks	      "0:1"
+	      clock_modes	      "[0 0]"
+	      set_clock_params_at_start	on
+	      set_clock_params_at_switch_in off
+	      analog_input_channels   "0:7"
+	      analog_input_maximums   "10"
+	      analog_input_minimums   "-10"
+	      set_analog_input_params_at_start on
+	      set_analog_input_params_at_switch_in off
+	      analog_output_channels  "0:7"
+	      analog_output_maximums  "10"
+	      analog_output_minimums  "-10"
+	      initial_analog_outputs  "0"
+	      final_analog_outputs    "0"
+	      watchdog_analog_outputs "0"
+	      set_analog_output_params_at_start	on
+	      set_analog_output_params_at_switch_in off
+	      set_analog_outputs_at_start on
+	      set_analog_outputs_at_switch_in off
+	      set_analog_outputs_at_terminate on
+	      set_analog_outputs_at_switch_out off
+	      set_analog_outputs_on_watchdog off
+	      digital_input_channels  "[]"
+	      digital_output_channels "[]"
+	      initial_digital_outputs "1"
+	      final_digital_outputs   "1"
+	      watchdog_digital_outputs "0"
+	      set_digital_outputs_at_start on
+	      set_digital_outputs_at_switch_in off
+	      set_digital_outputs_at_terminate on
+	      set_digital_outputs_at_switch_out	off
+	      set_digital_outputs_on_watchdog off
+	      encoder_channels	      "0:7"
+	      quadrature	      "4"
+	      encoder_filter_frequency "(1/60e-9)/1"
+	      initial_encoder_counts  "0"
+	      set_encoder_params_at_start on
+	      set_encoder_params_at_switch_in off
+	      set_encoder_counts_at_start on
+	      set_encoder_counts_at_switch_in off
+	      pwm_channels	      "[]"
+	      pwm_modes		      "0"
+	      pwm_frequency	      "(1/60e-9)/1024"
+	      initial_pwm_outputs     "0"
+	      final_pwm_outputs	      "0"
+	      watchdog_pwm_outputs    "0"
+	      set_pwm_params_at_start on
+	      set_pwm_params_at_switch_in off
+	      set_pwm_outputs_at_start on
+	      set_pwm_outputs_at_switch_in off
+	      set_pwm_outputs_at_terminate on
+	      set_pwm_outputs_at_switch_out off
+	      set_pwm_outputs_on_watchdog off
+	      other_output_channels   "[]"
+	      initial_other_outputs   "[]"
+	      final_other_outputs     "[]"
+	      watchdog_other_outputs  "0"
+	      set_other_outputs_at_start on
+	      set_other_outputs_at_switch_in off
+	      set_other_outputs_at_terminate on
+	      set_other_outputs_at_switch_out off
+	      set_other_outputs_on_watchdog off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "HIL Read Analog\nTimebase"
+	      Tag		      "unassigned"
+	      Ports		      [0, 2]
+	      Position		      [20, 174, 105, 236]
+	      AttributesFormatString  "(%<object_name>)"
+	      UserDataPersistent      on
+	      UserData		      "DataTag0"
+	      SourceBlock	      "quarc_library/Data Acquisition/Generic/Timebases/HIL Read Analog\nTimebase"
+	      SourceType	      "HIL Read Analog Timebase"
+	      object_name	      "HIL-1"
+	      clock		      "0"
+	      channels		      "[0,2]"
+	      samples_in_buffer	      "max(ceil(1/qc_get_step_size), 1)"
+	      active		      on
+	      vector_output	      off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "HIL Read Encoder"
+	      Tag		      "unassigned"
+	      Ports		      [0, 1]
+	      Position		      [25, 324, 110, 386]
+	      AttributesFormatString  "(%<object_name>)"
+	      UserDataPersistent      on
+	      UserData		      "DataTag1"
+	      SourceBlock	      "quarc_library/Data Acquisition/Generic/Immediate I//O/HIL Read Encoder"
+	      SourceType	      "HIL Read Encoder"
+	      object_name	      "HIL-1"
+	      channels		      "0"
+	      sample_time	      "qc_get_step_size"
+	      active		      on
+	      vector_output	      off
+	      data_type_mode	      "Inherit via back propagation"
+	      data_type		      "double"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "HIL Write Analog"
+	      Tag		      "unassigned"
+	      Ports		      [1]
+	      Position		      [260, 54, 345, 116]
+	      AttributesFormatString  "(%<object_name>)"
+	      UserDataPersistent      on
+	      UserData		      "DataTag2"
+	      SourceBlock	      "quarc_library/Data Acquisition/Generic/Immediate I//O/HIL Write Analog"
+	      SourceType	      "HIL Write Analog"
+	      object_name	      "HIL-1"
+	      channels		      "0"
+	      sample_time	      "-1"
+	      active		      off
+	      vector_input	      off
+	    }
+	    Block {
+	      BlockType		      MultiPortSwitch
+	      Name		      "Position Source\nSwitch"
+	      Ports		      [3, 1]
+	      Position		      [590, 282, 620, 368]
+	      Inputs		      "2"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Potentiometer Calibration \n(rad/V)"
+	      Position		      [170, 168, 240, 212]
+	      Gain		      "K_POT"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Tachometer Calibration \n(rad/s/V)"
+	      Position		      [170, 253, 240, 297]
+	      Gain		      "K_TACH"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      MultiPortSwitch
+	      Name		      "Velocity Source\nSwitch"
+	      Ports		      [3, 1]
+	      Position		      [585, 442, 615, 528]
+	      Inputs		      "2"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "theta_l (rad)"
+	      Position		      [665, 318, 695, 332]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      InitialOutput	      "0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "omega_l (rad/s)"
+	      Position		      [665, 478, 695, 492]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      InitialOutput	      "0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Vm (V)"
+	      Position		      [205, 103, 235, 117]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "HIL Read Analog\nTimebase"
+	      SrcPort		      2
+	      Points		      [20, 0; 0, 55]
+	      DstBlock		      "Tachometer Calibration \n(rad/s/V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "HIL Read Encoder"
+	      SrcPort		      1
+	      DstBlock		      "Encoder Calibration \n(rad/count)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Encoder High-Pass Filter"
+	      SrcPort		      1
+	      DstBlock		      "Velocity Source\nSwitch"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Potentiometer Calibration \n(rad/V)"
+	      SrcPort		      1
+	      Points		      [255, 0; 0, 135]
+	      DstBlock		      "Position Source\nSwitch"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "spd src"
+	      SrcPort		      1
+	      DstBlock		      "Velocity Source\nSwitch"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pos src"
+	      SrcPort		      1
+	      DstBlock		      "Position Source\nSwitch"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Position Source\nSwitch"
+	      SrcPort		      1
+	      DstBlock		      "theta_l (rad)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Velocity Source\nSwitch"
+	      SrcPort		      1
+	      DstBlock		      "omega_l (rad/s)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Actuator Dynamics"
+	      SrcPort		      2
+	      DstBlock		      "Vm (V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Actuator Dynamics"
+	      SrcPort		      1
+	      DstBlock		      "HIL Write Analog"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "HIL Read Analog\nTimebase"
+	      SrcPort		      1
+	      DstBlock		      "Potentiometer Calibration \n(rad/V)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Vi (V)"
+	      SrcPort		      1
+	      DstBlock		      "Actuator Dynamics"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Encoder Calibration \n(rad/count)"
+	      SrcPort		      1
+	      Points		      [10, 0]
+	      Branch {
+		Points			[0, 160]
+		DstBlock		"Encoder High-Pass Filter"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Position Source\nSwitch"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Tachometer Calibration \n(rad/s/V)"
+	      SrcPort		      1
+	      Points		      [225, 0; 0, 210]
+	      DstBlock		      "Velocity Source\nSwitch"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      Name		      "SRV02-ET Plant"
+	      Position		      [84, 24]
+	      FontSize		      16
+	      FontWeight	      "bold"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [295, 55, 315, 75]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "omega_l (rad/s)"
+	  Position		  [285, 93, 315, 107]
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Vm (V)"
+	  Position		  [285, 128, 315, 142]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "SRV02-ET"
+	  SrcPort		  3
+	  DstBlock		  "Vm (V)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Vi (V)"
+	  SrcPort		  1
+	  DstBlock		  "SRV02-ET"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "SRV02-ET"
+	  SrcPort		  2
+	  DstBlock		  "omega_l (rad/s)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "spd src"
+	  SrcPort		  1
+	  DstBlock		  "SRV02-ET"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "SRV02-ET"
+	  SrcPort		  1
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Pos Src"
+	  SrcPort		  1
+	  DstBlock		  "SRV02-ET"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Pot = 1 / Enc =2"
+	  Position		  [65, 39]
+	}
+      }
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Signal Generator"
+      Ports		      [0, 1]
+      Position		      [30, 150, 60, 180]
+      Amplitude		      "0"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Spd Src"
+      Position		      [30, 90, 60, 120]
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator"
+      Position		      [485, 290, 505, 310]
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Transfer Fcn\n(with initial outputs)"
+      Ports		      [1, 1]
+      Position		      [620, 252, 680, 288]
+      ShowName		      off
+      SourceBlock	      "simulink_extras/Additional\nLinear/Transfer Fcn\n(with initial outputs)"
+      SourceType	      "Transfer Function with Initial Outputs"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      N			      "[1]"
+      D			      "[1  1]"
+      Y0		      ".5"
+      U0		      "0"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Vi"
+      Ports		      [2, 1]
+      Position		      [260, 188, 280, 237]
+      CollapseMode	      "All dimensions"
+      InputSameDT	      off
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^-10"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Vm"
+      Ports		      [1]
+      Position		      [610, 459, 755, 481]
+      Format		      "long"
+      Decimation	      "100"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Vm (V)"
+      Ports		      [1]
+      Position		      [625, 384, 655, 416]
+      Floating		      off
+      Location		      [1351, 600, 1675, 838]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "5"
+      SaveToWorkspace	      on
+      SaveName		      "Vm"
+      DataFormat	      "Array"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "w_l"
+      Ports		      [1]
+      Position		      [735, 259, 880, 281]
+      Format		      "long"
+      Decimation	      "100"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "w_l (rad/s)"
+      Ports		      [1]
+      Position		      [625, 329, 655, 361]
+      Floating		      off
+      Location		      [1351, 249, 1675, 490]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "5"
+      YMin		      "-3.5"
+      YMax		      "3.5"
+      SaveToWorkspace	      on
+      SaveName		      "wl"
+      DataFormat	      "Array"
+      SampleTime	      "0"
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      DstBlock		      "Offset (V)"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Offset (V)"
+      SrcPort		      1
+      DstBlock		      "Vi"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vi"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, 115]
+	DstBlock		"SRV02 Model"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"SRV02-ET Speed"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "w_l (rad/s)"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "SRV02-ET Speed"
+      SrcPort		      2
+      Points		      [80, 0; 0, 185; 40, 0]
+      Branch {
+	DstBlock		"Vm (V)"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 70]
+	DstBlock		"Vm"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "SRV02 Model"
+      SrcPort		      2
+      DstBlock		      "Mux"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "SRV02-ET Speed"
+      SrcPort		      1
+      Points		      [100, 0; 0, 100]
+      Branch {
+	Points			[0, 65]
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Transfer Fcn\n(with initial outputs)"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "SRV02 Model"
+      SrcPort		      1
+      DstBlock		      "Terminator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Signal Generator"
+      SrcPort		      1
+      DstBlock		      "Amplitude (V)"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Amplitude (V)"
+      SrcPort		      1
+      Points		      [80, 0]
+      DstBlock		      "Vi"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Spd Src"
+      SrcPort		      1
+      Points		      [240, 0]
+      DstBlock		      "SRV02-ET Speed"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transfer Fcn\n(with initial outputs)"
+      SrcPort		      1
+      DstBlock		      "w_l"
+      DstPort		      1
+    }
+    Annotation {
+      Name		      "SRV02-ET Experiment #1: Modeling"
+      Position		      [24, 24]
+      HorizontalAlignment     "left"
+      FontName		      "Arial"
+      FontSize		      16
+      FontWeight	      "bold"
+    }
+    Annotation {
+      Name		      "Tach = 1 / Enc = 2"
+      Position		      [125, 92]
+    }
+  }
+}
+MatData {
+  NumRecords		  3
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    & $   8    (     @         %    \"     $    !     0         %  0 #0    $    G    ;VQD7VYA;64      &ES7V1E;&5T960   !O8FIE8W1?8FQO8VL   X    X    !@    @    $          4    (     0    4    !         !     %    2$E,+3$    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    &          4    (     0    $    !          D    (         !  4$ "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    & $   8    (     @         %    \"     $    !     0         %  0 #0    $    G    ;VQD7VYA;64      &ES7V1E;&5T960   !O8FIE8W1?8FQO8VL   X    X    !@    @    $          4    (     0    4    !         !     %    2$E,+3$    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    &          4    (     0    $    !          D    (         !  4$ "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    & $   8    (     @         %    \"     $    !     0         %  0 #0    $    G    ;VQD7VYA;64      &ES7V1E;&5T960   !O8FIE8W1?8FQO8VL   X    X    !@    @    $          4    (     0    4    !         !     %    2$E,+3$    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    &          4    (     0    $    !          D    (         !  4$ "
+  }
+}

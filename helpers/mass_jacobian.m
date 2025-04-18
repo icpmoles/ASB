@@ -9,10 +9,12 @@ function [m11, m12, m21, m22, error] = mass_jacobian(x,y,debug)
 L =0.127;
 m = 0.065;
 J_l_cog = 8.74e-5;
-J_motor_side = 3.9e-7 + 7.06e-8 + 2.087e-3;
+% J_l_cog = 4.41e-4;
+%J_motor_side = eq motor side + Jgearbox 
+J_motor_Lside = 0.9*(3.9e-7 + 7.06e-8)/(4900) + 2.087e-3;
 % J_motor_side = 0;
-Jp = J_l_cog;
-Ja = Jp + (70^2)*J_motor_side;
+Jp = J_l_cog; % passive link
+Ja = Jp ; %active link + J_motor_Lside
 mph = diag([m,m,Ja,m,m,Jp,m,m,Jp,m,m,Ja]);
 bound_d = 0.02; %% at the singularity it has problems
 bound_od = 0.01; %% at the singularity it has problems, off diagonal members
@@ -92,9 +94,7 @@ else
     m21 = NaN;
     m22 = NaN;
     error = 1;
-    
-  
-
 end
+
 end
 
