@@ -160,8 +160,8 @@ $ s^2 tm J + s tm beta = T
 \ s^2 tm J + s tm beta = k/R V - s tm k^2/R
 \ s tm [ s J + (beta + k^2/R)] =  k/R V
 
-\ G_tm (s) = tm/V = 1/s  k/R / ( s J + (beta + k^2/R) ) =
-1/s mu / (tau s + 1)
+\ G_tm (s) = tm/V = r/s  k/R / ( s J + (beta + k^2/R) ) =
+r/s mu / (tau s + 1)
 \ G_tl (s) = tm/V = 1/s  k/(r R) / ( s J + (beta + k^2/R) ) =
 1/s mu / (tau s + 1)
  $

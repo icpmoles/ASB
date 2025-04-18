@@ -70,8 +70,9 @@ function [Phase,gain, phase_delay] = NewSweepAnalysis(t_steady,inp_focus, out_fo
 
         end
     end
-    
-    gain = mean(out_pp)/max(inp_pp);
+    gain = (mean((out_mxv(1:end-1)-out_mnv(2:end))/2) +  mean((out_mxv(2:end)-out_mnv(1:end-1))/2) )/2;
+    gain = gain/max(inp_pp);
+    % gain = mean(out_pp)/max(inp_pp);
     phase_delay = mean(delays) * 2 * pi / T;
     %% plot
     if plots
