@@ -5,26 +5,28 @@ function [m11, m12, m21, m22, error] = mass_jacobian(x,y,debug)
 % if debug true, it also prints it
 % error = true means an error somewhere
 [a1,a2,p1,p2, error] = inverse_kin(x,y, false);
-
+conv_factor = 3;
 L = 0.127;
-m = 0.065;
+m = 0.065/conv_factor;
 J_l_cog = 8.74e-5;
 % J_l_cog = 4.41e-4;
 %J_motor_side = eq motor side + Jgearbox 
-J_motor_Lside = 0.9*(3.9e-7 + 7.06e-8)/(4900) + 2.087e-3;
+% J_motor_Lside = 0.9*(3.9e-7 + 7.06e-8)/(4900) + 2.087e-3;
 % J_motor_side = 0;
 Jp = J_l_cog; % passive link
 Ja = Jp ; %active link + J_motor_Lside
-mph = diag([m,m,Ja,m,m,Jp,m,m,Jp,m,m,Ja]);
-bound_d = 0.02; %% at the singularity it has problems
-bound_od = 0.01; %% at the singularity it has problems, off diagonal members
+mph_v = [m,m,Ja,m,m,Jp,m,m,Jp,m,m,Ja];
+mph = diag(mph_v);
+bound_d = 0.02/conv_factor; %% at the singularity it has problems
+bound_od = 0.01/conv_factor; %% at the singularity it has problems, off diagonal members
 
 
 if not(error)
-g11 = sin(a1-a2)/sin(p1-p2);
-g12 = sin(p2-a2)/sin(p1-p2);
-g21 = sin(a1-p1)/sin(p1-p2);
-g22 = sin(p1-p2)/sin(p1-p2);
+det = sin(p1-p2);
+g11 = sin(a1-p2)/det;
+g12 = sin(p2-a2)/det;
+g21 = sin(a1-p1)/det;
+g22 = sin(p1-a2)/det;
 
 %LINK 1
 l1_1 = -L/2 *sin(a1);
@@ -78,12 +80,12 @@ m21 = clamp(m0(2,1),bound_od);
 m22 = clamp(m0(2,2),bound_d);
 
 if debug
-a1
-a2
-p1
-p2
+rad2deg(a1)
+rad2deg(a2)
+rad2deg(p1)
+rad2deg(p2)
 Lm
-mph
+mph_v'
 m0
 end
 
