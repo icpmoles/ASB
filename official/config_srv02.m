@@ -160,7 +160,9 @@ function [ Kg, Beq, Jeq ] = calc_eq_damping_inerta( EXT_GEAR_CONFIG, LOAD_TYPE, 
         Kge = 5;
         Kg = Kgi * Kge;
         % Equivalent moment of inertia including load (kg.m^2)
-        Jg = J24 + 2 * J72 + J120
+       
+        Jg = J24 + 2 * J72 + J120;
+        % 5.2822e-05
         % Equivalent Viscous Damping Coefficient as seen at the Load (N.m.s/rd)
         % Beq = 4e-3;
         Beq = 15e-3;
@@ -172,12 +174,10 @@ function [ Kg, Beq, Jeq ] = calc_eq_damping_inerta( EXT_GEAR_CONFIG, LOAD_TYPE, 
         Beq = 0;
     end
     Jg
-    Jl_ext
-    Jm
     % Load moment of inertia: gears and external (kg.m^2)
     Jl = Jg + Jl_ext;
     % Equivalent moment of inertia including load (kg.m^2)    
-    Jeq = Kg^2 * Jm * eta_g + Jl
+    Jeq = Kg^2 * Jm * eta_g + Jl;
 end
 %
 %
