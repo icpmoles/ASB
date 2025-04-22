@@ -14,8 +14,8 @@ EXT_GEAR_CONFIG = 'HIGH';
 ENCODER_TYPE = 'E';
 % Is SRV02 equipped with Tachometer? (i.e. option T): set to 'YES' or 'NO'
 TACH_OPTION = 'YES';
-% Type of Load: set to 'NONE', 'DISC', or 'BAR', CNC
-LOAD_TYPE = 'CNCNom';
+% Type of Load: set to 'NONE', 'DISC', or 'BAR', CNC, CNCNom
+LOAD_TYPE = 'CNC0';
 % Cable Gain used: set to 1, 3, or 5
 K_CABLE = 1;
 % Power Amplifier Type: set to 'UPM_1503', 'UPM_2405', or 'Q3'

@@ -114,10 +114,10 @@ function [ Kg, Beq, Jeq ] = calc_eq_damping_inerta( EXT_GEAR_CONFIG, LOAD_TYPE, 
         Jl_ext = 1.49e-03;
     elseif strcmp (LOAD_TYPE, 'CNC0')
         % J = mr^2 / 2
-        Jl_ext = 5.53e-3; 
+        Jl_ext = 1.66e-3; 
     elseif strcmp (LOAD_TYPE, 'CNC1')
         % J = mr^2 / 2
-        Jl_ext = 6.472e-3; 
+        Jl_ext = 1.69e-3; 
     elseif strcmp (LOAD_TYPE, 'BAR')
         % J = mL^2 / 12 + mR^2 (Moment about center then shifted)
         Jl_ext = 1/12 * 0.038 * (0.1525)^2 + 0.038 * (0.0575)^2; 
@@ -160,8 +160,8 @@ function [ Kg, Beq, Jeq ] = calc_eq_damping_inerta( EXT_GEAR_CONFIG, LOAD_TYPE, 
         Kge = 5;
         Kg = Kgi * Kge;
         % Equivalent moment of inertia including load (kg.m^2)
-       
-        Jg = J24 + 2 * J72 + J120;
+               
+        Jg = 25*J24 + 2 * J72 + J120;
         % 5.2822e-05
         % Equivalent Viscous Damping Coefficient as seen at the Load (N.m.s/rd)
         % Beq = 4e-3;
@@ -177,7 +177,7 @@ function [ Kg, Beq, Jeq ] = calc_eq_damping_inerta( EXT_GEAR_CONFIG, LOAD_TYPE, 
     % Load moment of inertia: gears and external (kg.m^2)
     Jl = Jg + Jl_ext;
     % Equivalent moment of inertia including load (kg.m^2)    
-    Jeq = Kg^2 * Jm * eta_g + Jl;
+    Jeq = Kg^2 * Jm * eta_g + Jl
 end
 %
 %
