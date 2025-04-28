@@ -21,7 +21,7 @@ y_E2 = y_P2 + L * sin(t_p2) ;
 
 J = vel_jacobian(t_a1,t_a2,t_p1,t_p2);
 scal = max([ norm(J(:,1)) , norm(J(:,2))]);
-J = 0.05*J/scal;
+J = 0.1*J/scal;
 
 figure;
 hold on;
@@ -51,11 +51,28 @@ plot(x_E, y_E, 'ko', 'MarkerSize', 8, 'MarkerFaceColor', 'k'); % End-effector
 
 
 
+% M =  10*vel_jacobian(t_a1,t_a2,t_p1,t_p2);
+% q1 = M(:,1)'*[1;1];
+% q2 = M(:,2)'*[1;1];
+% q = (M' * M)\M'*[1;1];
+% q1 = q(1);
+% q2 = q(2);
+
+
 % Draw Vector Field
 % plot([x_E, x_E+J(1,1)], [y_E, y_E+J(2,1)], "red", 'LineWidth', 2); % Passive link 1
 
 quiver(x_E,y_E,J(1,1),J(2,1),"red"	);
 quiver(x_E,y_E,J(1,2),J(2,2), "blue");
+
+
+
+% quiver(x_E,y_E,q1*J(1,1),q1*J(2,1),"black"	);
+% quiver(x_E,y_E,q2*J(1,2),q2*J(2,2), "black");
+% quiver(x_E,y_E,q1*J(1,1)+q2*J(1,2),q1*J(2,1)+q2*J(2,2),"yellow"	);
+
+% quiver(x_E,y_E,q1,q2, "black");
+
 % plot([x_E, x_E+J(1,2)], [y_E, y_E+J(2,2)], "blue", 'LineWidth', 2); % Passive link 2
 
 
