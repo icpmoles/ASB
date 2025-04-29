@@ -112,7 +112,7 @@ $ theta_(A 2) in vec(-0.4712 ,0.4712 ) "rad" = vec(-27°, 27°) approx 52° "pea
 = Control
 == Frequency Based Design
 
-- (Candidate) Control Bandwidth: 26 rad/s
+- (Candidate) Control Bandwidth: 24 rad/s
 
 - Phase Margin: 70° (balance between effort and overshoot)
 
@@ -123,8 +123,9 @@ $ theta_(A 2) in vec(-0.4712 ,0.4712 ) "rad" = vec(-27°, 27°) approx 52° "pea
 table.header(
     [], [*Motor 0*], [*Motor 1*],
   ),
-  [ Kp ],[-21.4],[-21],
-  [ Kd ],[-0.43],[-0.47],
+  [ Kp ],[-20.82],[-20.604],
+  [ Kd ],[-0.4158],[-0.423],
+  [ N  ],[251],[251],
   [ Rise Time #FillCell [s]],[0.0620],[ 0.0620],
   [ Settling Time #FillCell [s]],[0.1880],[ 0.1920],
   [Overshoot #FillCell [%]],[5.6800],[6.0723]
