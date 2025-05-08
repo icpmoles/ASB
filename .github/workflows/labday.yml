@@ -1,0 +1,17 @@
+name: Compile & Publish
+on:
+  push:
+    paths:
+      - labday/**
+      - .github/**
+jobs:
+  publish_experiment_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Output PDF files
+          path: |
+            labday/*
+          if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
