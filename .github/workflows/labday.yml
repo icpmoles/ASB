@@ -1,4 +1,4 @@
-name: Compile & Publish
+name: Articfacts
 on:
   push:
     paths:
@@ -13,5 +13,5 @@ jobs:
         with:
           name: Output PDF files
           path: |
-            labday/*
-          if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
+            labday/
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
