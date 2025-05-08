@@ -11,10 +11,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: ASB
+          sparse-checkout: labday
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Output PDF files
+          name: Output LAB files
           path: |
             ASB/labday/
           if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
