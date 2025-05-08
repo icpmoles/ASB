@@ -8,10 +8,13 @@ jobs:
   publish_experiment_setup:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          path: ASB
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Output PDF files
           path: |
-            labday/
+            ASB/labday/
           if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
