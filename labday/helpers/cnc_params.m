@@ -79,3 +79,24 @@ beta_ext = [ 0.026532057000485 0.024683842701485];
 Jl_eq = Jg_eq + J_load_ext_home;
 
 J_tilda = ((Jl_eq/eta_g) + r^2 * J_motor_side)/eta_m;
+
+
+%% Transfer Function
+
+G0_tf = tf(-mu_ext(1),[1/P_ext(1) 1 0]);
+G1_tf = tf(-mu_ext(2),[1/P_ext(2) 1 0]);
+
+A0 = [0 1 ; 
+    0 -P_ext(1)];
+A1 = [0 1 ; 
+    0 -P_ext(2)];
+
+b21 = (k *r /Ra)/J_tilda;
+B = [0 ; -b21];
+C = [1 0];
+
+
+G0_ss = ss(A0,B,C,0);
+G1_ss = ss(A1,B,C,0);
+G0_ss_tf = tf(G0_ss);
+G1_ss_tf = tf(G1_ss);
