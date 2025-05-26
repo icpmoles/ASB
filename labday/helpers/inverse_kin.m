@@ -1,6 +1,6 @@
 function [t_a1,t_a2,t_p1,t_p2, error] = inverse_kin(x,y, debug)
     L = 0.127; %m
-    margin =  0.04;
+    margin =  0.004;
     beta1 = atan2(y,x);
     beta2 = atan2(y,x-2*L);
     d1 = sqrt(x^2 + y^2);

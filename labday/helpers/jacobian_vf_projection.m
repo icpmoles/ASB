@@ -6,7 +6,7 @@ v = [vx;vy];
 [~, ~, t_p1 , t_p2, ~] = direct_kinematics(t_a1,t_a2);
 M = vel_jacobian(t_a1,t_a2,t_p1,t_p2);
 
-alpha_dot = (M' * M)\M' * v;
+alpha_dot = M\ v;
 
 end
 
