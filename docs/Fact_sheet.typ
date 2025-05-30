@@ -227,7 +227,7 @@ table.header(
   [12],[13],[D1],[V],[Disturbance motor 1],
 
  table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
-  [13],[13],[LU, $theta_0$],[rad],[Lumberger Observer, angle],
+  [13],[14],[LU, $theta_0$],[rad],[Lumberger Observer, angle],
   [14],[15],[LU, $omega_0$],[rad/s],[LU, angular velocity],
   [15],[16],[LU, $d_0$],[V],[LU, estimation of disturbance, to compare with D0 at row 12],
    table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
