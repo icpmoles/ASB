@@ -205,7 +205,8 @@ table.header(
 
 
 - .mat file row structure with observer 
-
+#show table.cell.where(x: 0): emph
+#show table.cell.where(x: 1): strong
 #table(
   columns: (auto, auto, auto,auto, auto),
   align: horizon,
@@ -231,14 +232,14 @@ table.header(
   [15],[16],[LU, $d_0$],[V],[LU, estimation of disturbance, to compare with D0 at row 12],
    table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
   [16],[17],[LU, $theta_1$],[rad],[-],
-  [17],[187],[LU, $omega_1$],[rad/s],[-],
+  [17],[18],[LU, $omega_1$],[rad/s],[-],
   [18],[19],[LU, $d_1$],[V],[-],
    table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
   [19],[20],[KF, $theta_0$],[rad],[-],
   [20],[21],[KF, $omega_0$],[rad/s],[-],
   [21],[22],[KF, $d_0$],[V],[-],
    table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
-  [221],[23],[KF, $theta_1$],[rad],[-],
+  [22],[23],[KF, $theta_1$],[rad],[-],
   [23],[24],[KF, $omega_1$],[rad/s],[-],
   [24],[25],[KF, $d_1$],[V],[-]
 )
