@@ -79,13 +79,16 @@ warning('Use NewSweepAnalysis instead')
     if plots
         subplot(2,2,3)
         hold on
-        plot(t_steady,out_focus)
+        % plot(t_steady,out_focus)
         plot(t_steady,out_deb)
         stem(out_mxi,out_mxv,"filled")
         stem(out_mni,out_mnv,"filled")
+        xlim([t_steady(1),t_steady(end)])
+        ylabel("angle [rad]")
+        xlabel("time [s]")
         % legend("raw","debiased","peak max","peak min")
-        title("OUTPUT SIGNAL")
-        title("gain: " + gain)
+        title("\theta Debiased")
+        % title("gain: " + gain)
         hold off
     
         subplot(2,2,4)

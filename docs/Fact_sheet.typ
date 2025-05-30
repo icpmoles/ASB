@@ -200,3 +200,45 @@ table.header(
   [11],[12],[D0],[V],[Disturbance motor 0],
   [12],[13],[D1],[V],[Disturbance motor 1],
 )
+
+#pagebreak()
+
+
+- .mat file row structure with observer 
+
+#table(
+  columns: (auto, auto, auto,auto, auto),
+  align: horizon,
+  table.header(
+    [muxer id], [*.mat row*], [*Name*],[Unit],[Description]
+  ),
+  [1],[2],[ENC0 / Y0],[rad],[angular distance from rest position],
+  [2],[3],[ENC1 / Y1],[rad],[angular distance from rest position],
+  [3],[4],[U0],[V],[voltage requested by control law (copy of input signal)],
+  [4],[5],[U1],[V],[voltage requested by control law (copy of input signal)],
+  [5],[6],[U0_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup ?)],
+  [6],[7],[U1_SAT],[V],[actual voltage provided to actuator after saturation (for anti-windup?)],
+  [7],[8],[EC0],[/],[Error code for joint 0],
+  [8],[9],[EC1],[/],[Error code for joint 1],
+  [9],[10],[Y0_REF],[rad],[Setpoint motor 0],
+  [10],[11],[Y1_REF],[rad],[Setpoint motor 1],
+  [11],[12],[D0],[V],[Disturbance motor 0],
+  [12],[13],[D1],[V],[Disturbance motor 1],
+
+ table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
+  [13],[13],[LU, $theta_0$],[rad],[Lumberger Observer, angle],
+  [14],[15],[LU, $omega_0$],[rad/s],[LU, angular velocity],
+  [15],[16],[LU, $d_0$],[V],[LU, estimation of disturbance, to compare with D0 at row 12],
+   table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
+  [16],[17],[LU, $theta_1$],[rad],[-],
+  [17],[187],[LU, $omega_1$],[rad/s],[-],
+  [18],[19],[LU, $d_1$],[V],[-],
+   table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
+  [19],[20],[KF, $theta_0$],[rad],[-],
+  [20],[21],[KF, $omega_0$],[rad/s],[-],
+  [21],[22],[KF, $d_0$],[V],[-],
+   table.hline(stroke: ( thickness: 2pt, dash: "dashed")),
+  [221],[23],[KF, $theta_1$],[rad],[-],
+  [23],[24],[KF, $omega_1$],[rad/s],[-],
+  [24],[25],[KF, $d_1$],[V],[-]
+)
